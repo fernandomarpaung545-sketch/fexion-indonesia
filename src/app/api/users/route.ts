@@ -15,11 +15,11 @@ export async function GET(req: NextRequest) {
       where.OR = [
         { name: { contains: search, mode: 'insensitive' } },
         { company: { contains: search, mode: 'insensitive' } },
-        { title: { contains: search, mode: 'insensitive' } },
+        { jobTitle: { contains: search, mode: 'insensitive' } },
       ];
     }
     if (discipline) {
-      where.disciplines = { has: discipline };
+      where.expertise = { has: discipline };
     }
 
     const [users, total] = await Promise.all([
@@ -28,8 +28,8 @@ export async function GET(req: NextRequest) {
         skip,
         take: limit,
         select: {
-          id: true, name: true, title: true, company: true, location: true,
-          disciplines: true, yearsExperience: true, memberNumber: true, isVerified: true,
+          id: true, name: true, jobTitle: true, company: true, location: true,
+          expertise: true, yearsExperience: true, memberNumber: true,
           createdAt: true,
         },
         orderBy: { createdAt: 'desc' },

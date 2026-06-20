@@ -7,7 +7,7 @@ const paymentSchema = z.object({
   registrationId: z.string(),
   amount: z.number().positive(),
   method: z.string(),
-  proofUrl: z.string().url().optional(),
+  proofImage: z.string().url().optional(),
 });
 
 export async function GET(req: NextRequest) {
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         userId: data.userId,
         amount: data.amount,
         method: data.method,
-        proofUrl: data.proofUrl,
+        proofImage: data.proofUrl,
         status: 'PENDING',
       },
     });
