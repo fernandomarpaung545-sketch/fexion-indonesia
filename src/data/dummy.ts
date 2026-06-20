@@ -1,4 +1,3 @@
-// src/data/dummy.ts
 import type { Training, Event, Article } from '@/types'
 
 export const communityStats = [
@@ -19,7 +18,6 @@ export const disciplines = [
   { id: 'drill', title: 'Drilling & Subsurface Integration', icon: 'settings', color: '#F59E0B', description: 'Cross-discipline collaboration between drilling engineers and geoscientists on well design, geopressure, and operational risk.', members: 288 },
 ]
 
-// Verified Unsplash photo IDs — confirmed oil & gas / geology related
 export const featuredTrainings: Partial<Training>[] = [
   {
     id: 't1',
@@ -29,8 +27,6 @@ export const featuredTrainings: Partial<Training>[] = [
     category: 'PETROPHYSICS',
     level: 'ADVANCED',
     duration: '3 Days',
-    durationHours: 24,
-    // Pump jack oilfield — Zbynek Burival
     thumbnail: 'https://images.unsplash.com/photo-1603695576658-4b2eb9bdb74a?w=800&h=450&fit=crop&q=80',
     trainerName: 'Dr. Andi Kusuma, M.Sc',
     trainerTitle: 'Senior Petrophysicist',
@@ -57,8 +53,6 @@ export const featuredTrainings: Partial<Training>[] = [
     category: 'FORMATION_EVALUATION',
     level: 'BEGINNER',
     duration: '2 Days',
-    durationHours: 16,
-    // Offshore oil rig — Sheng Hu
     thumbnail: 'https://images.unsplash.com/photo-1720693089126-89e6279a8bf5?w=800&h=450&fit=crop&q=80',
     trainerName: 'Reza Pratama, S.T., M.T.',
     trainerTitle: 'Formation Evaluation Specialist',
@@ -83,8 +77,6 @@ export const featuredTrainings: Partial<Training>[] = [
     category: 'GEOSTEERING',
     level: 'INTERMEDIATE',
     duration: '2 Days',
-    durationHours: 16,
-    // Oil rigs retired in ocean — Ben Wicks
     thumbnail: 'https://images.unsplash.com/photo-1648283720623-b1fd502b3e41?w=800&h=450&fit=crop&q=80',
     trainerName: 'Bambang Setiawan, Ph.D.',
     trainerTitle: 'Geosteering & LWD Expert',
@@ -111,8 +103,6 @@ export const featuredTrainings: Partial<Training>[] = [
     category: 'CCS_ENERGY_TRANSITION',
     level: 'INTERMEDIATE',
     duration: '1 Day',
-    durationHours: 8,
-    // Red offshore oil platform — Grant Durr
     thumbnail: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=450&fit=crop&q=80',
     trainerName: 'Dr. Siti Rahayu',
     trainerTitle: 'CCS Technical Lead',
@@ -138,11 +128,11 @@ export const upcomingEvents: Partial<Event>[] = [
     slug: 'fexion-annual-conference-2025',
     shortDescription: 'Indonesia\'s premier formation evaluation and geoscience conference. Two days of technical sessions, workshops, and industry networking.',
     type: 'CONFERENCE',
-    // Conference auditorium
     thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=450&fit=crop&q=80',
     startDate: new Date('2025-06-18'),
     endDate: new Date('2025-06-19'),
     venue: 'The Ritz-Carlton Jakarta',
+    address: 'Jl. DR. Ide Anak Agung Gde Agung No.1',
     city: 'Jakarta',
     isOnline: false,
     maxAttendees: 500,
@@ -158,7 +148,6 @@ export const upcomingEvents: Partial<Event>[] = [
     slug: 'webinar-digital-transformation-fe',
     shortDescription: 'How AI, machine learning, and cloud computing are reshaping subsurface characterization workflows.',
     type: 'WEBINAR',
-    // Pump jack at sunset — lone pump jack
     thumbnail: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=450&fit=crop&q=80',
     startDate: new Date('2025-03-28'),
     endDate: new Date('2025-03-28'),
@@ -176,7 +165,6 @@ export const upcomingEvents: Partial<Event>[] = [
     slug: 'workshop-pwd-applications',
     shortDescription: 'Hands-on workshop covering wellbore breathing, ECD management, and pore pressure detection using PWD data.',
     type: 'WORKSHOP',
-    // Multiple oil rigs at sea — Ronan Furuta
     thumbnail: 'https://images.unsplash.com/photo-1527736947477-2790e28f3443?w=800&h=450&fit=crop&q=80',
     startDate: new Date('2025-04-12'),
     endDate: new Date('2025-04-12'),
@@ -196,7 +184,6 @@ export const upcomingEvents: Partial<Event>[] = [
     slug: 'tech-sharing-deepwater-fe',
     shortDescription: 'Open forum for practitioners to share challenges and best practices from deepwater formation evaluation campaigns.',
     type: 'TECHNICAL_SHARING',
-    // Offshore oil platform sea — Grant Durr
     thumbnail: 'https://images.unsplash.com/photo-1562937416-2e0fc58edb26?w=800&h=450&fit=crop&q=80',
     startDate: new Date('2025-05-08'),
     endDate: new Date('2025-05-08'),
@@ -217,7 +204,6 @@ export const featuredArticles: Partial<Article>[] = [
     excerpt: 'A systematic workflow for determining representative Archie saturation exponents in heterogeneous carbonate reservoirs of the East Java Basin.',
     category: 'TECHNICAL_ARTICLE',
     tags: ['Petrophysics', 'Carbonates', 'Archie', 'East Java Basin'],
-    // Oil pump jack field
     coverImage: 'https://images.unsplash.com/photo-1603695576658-4b2eb9bdb74a?w=800&h=450&fit=crop&q=80',
     author: { id: 'u1', name: 'Dr. Andi Kusuma', image: null, jobTitle: 'Senior Petrophysicist' },
     publishedAt: new Date('2025-02-12'),
@@ -233,7 +219,6 @@ export const featuredArticles: Partial<Article>[] = [
     excerpt: 'Comparative analysis of dc-exponent, PWD, and gas shows as pore pressure indicators in abnormally pressured formations of South Sumatra Basin.',
     category: 'CASE_STUDY',
     tags: ['Geopressure', 'South Sumatra', 'Well Control', 'Drilling'],
-    // Offshore rig ocean
     coverImage: 'https://images.unsplash.com/photo-1720693089126-89e6279a8bf5?w=800&h=450&fit=crop&q=80',
     author: { id: 'u2', name: 'Bambang Setiawan', image: null, jobTitle: 'Drilling & Subsurface Consultant' },
     publishedAt: new Date('2025-01-28'),
@@ -249,7 +234,6 @@ export const featuredArticles: Partial<Article>[] = [
     excerpt: 'Review of international CCS screening protocols and their applicability to depleted gas fields in Natuna and Kutei basins.',
     category: 'INDUSTRY_INSIGHT',
     tags: ['CCS', 'Energy Transition', 'Regulation', 'Natuna'],
-    // Red oil platform sea
     coverImage: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=450&fit=crop&q=80',
     author: { id: 'u3', name: 'Dr. Siti Rahayu', image: null, jobTitle: 'CCS Technical Lead' },
     publishedAt: new Date('2025-02-05'),
@@ -272,7 +256,7 @@ export const committeeMembers = [
 export const testimonials = [
   { id: 'tm1', name: 'Agus Prasetyo', title: 'Senior Formation Evaluator, Chevron Pacific Indonesia', photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&q=80', text: 'FEXION has completely elevated my professional network. The technical quality of the trainings is on par with SPE workshops, but grounded in Indonesian basin challenges.', rating: 5 },
   { id: 'tm2', name: 'Ratna Sari, M.Sc.', title: 'Petrophysicist, ExxonMobil Cepu', photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&q=80', text: 'The annual conference brings together the best minds in Indonesian subsurface. I\'ve made connections here that have directly advanced my career.', rating: 5 },
-  { id: 'tm3', name: 'Budi Hartanto', title: 'Wellsite Geologist, Baker Hughes', photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80', text: 'As a wellsite geologist working remotely on rigs, FEXION\'s online webinars keep me connected with the technical community and up-to-date with industry developments.', rating: 5 },
+  { id: 'tm3', name: 'Budi Hartanto', title: 'Wellsite Geologist, Baker Hughes', photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80', text: 'As a wellsite geologist working remotely on rigs, FEXION online webinars keep me connected with the technical community and up-to-date with industry developments.', rating: 5 },
   { id: 'tm4', name: 'Dr. Lucia Tambunan', title: 'Reservoir Geologist, Vico Indonesia', photo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&q=80', text: 'The knowledge center is a goldmine of Indonesian basin-specific case studies and technical papers. It saves hours of searching.', rating: 5 },
 ]
 
