@@ -1,0 +1,516 @@
+// prisma/schema.prisma
+// GOFEW Indonesia - Complete Database Schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// AUTHENTICATION & USERS
+// ─────────────────────────────────────────────
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model User {
+  id               String    @id @default(cuid())
+  name             String?
+  email            String?   @unique
+  emailVerified    DateTime?
+  image            String?
+  password         String?
+  role             Role      @default(MEMBER)
+  status           UserStatus @default(PENDING)
+  
+  // Profile
+  fullName         String?
+  phone            String?
+  company          String?
+  jobTitle         String?
+  location         String?
+  bio              String?   @db.Text
+  linkedinUrl      String?
+  expertise        String[]
+  yearsExperience  Int?
+  
+  // Membership
+  membershipType   MembershipType @default(FREE)
+  membershipExpiry DateTime?
+  memberNumber     String?   @unique
+  
+  // Metadata
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  lastLoginAt      DateTime?
+  
+  // Relations
+  accounts         Account[]
+  sessions         Session[]
+  trainingRegistrations TrainingRegistration[]
+  eventRegistrations    EventRegistration[]
+  payments         Payment[]
+  certificates     Certificate[]
+  articles         Article[]
+  comments         Comment[]
+  networkingRequests NetworkingRequest[] @relation("Requester")
+  networkingReceived NetworkingRequest[] @relation("Receiver")
+  
+  @@index([email])
+  @@index([memberNumber])
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  MODERATOR
+  MEMBER
+  GUEST
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  INACTIVE
+}
+
+enum MembershipType {
+  FREE
+  PROFESSIONAL
+  CORPORATE
+  STUDENT
+}
+
+// ─────────────────────────────────────────────
+// TRAINING
+// ─────────────────────────────────────────────
+
+model Training {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String   @db.Text
+  shortDescription String?
+  category         TrainingCategory
+  level            TrainingLevel
+  duration         String
+  durationHours    Int?
+  language         String   @default("Indonesian")
+  thumbnail        String?
+  
+  // Trainer
+  trainerName      String
+  trainerTitle     String?
+  trainerCompany   String?
+  trainerBio       String?  @db.Text
+  trainerPhoto     String?
+  
+  // Schedule & Pricing
+  scheduleStart    DateTime?
+  scheduleEnd      DateTime?
+  location         String?
+  isOnline         Boolean  @default(false)
+  maxParticipants  Int?
+  
+  // Pricing (in IDR)
+  priceRegular     Int      @default(0)
+  priceEarlyBird   Int?
+  earlyBirdDeadline DateTime?
+  isFree           Boolean  @default(false)
+  
+  // Content
+  syllabus         Json?
+  prerequisites    String[]
+  includes         String[]
+  
+  // Status
+  status           TrainingStatus @default(DRAFT)
+  isFeatured       Boolean  @default(false)
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  
+  registrations    TrainingRegistration[]
+  certificates     Certificate[]
+  
+  @@index([category])
+  @@index([status])
+  @@index([slug])
+}
+
+enum TrainingCategory {
+  FORMATION_EVALUATION
+  PETROPHYSICS
+  WELLSITE_GEOLOGY
+  MUD_LOGGING
+  GEOSTEERING
+  RESERVOIR_GEOLOGY
+  CCS_ENERGY_TRANSITION
+  DRILLING_SUBSURFACE
+}
+
+enum TrainingLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+enum TrainingStatus {
+  DRAFT
+  PUBLISHED
+  FULL
+  COMPLETED
+  CANCELLED
+}
+
+model TrainingRegistration {
+  id          String   @id @default(cuid())
+  userId      String
+  trainingId  String
+  status      RegistrationStatus @default(PENDING)
+  paymentId   String?  @unique
+  registeredAt DateTime @default(now())
+  confirmedAt  DateTime?
+  
+  user        User     @relation(fields: [userId], references: [id])
+  training    Training @relation(fields: [trainingId], references: [id])
+  payment     Payment? @relation(fields: [paymentId], references: [id])
+  
+  @@unique([userId, trainingId])
+}
+
+enum RegistrationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  WAITLISTED
+}
+
+// ─────────────────────────────────────────────
+// EVENTS
+// ─────────────────────────────────────────────
+
+model Event {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String   @db.Text
+  shortDescription String?
+  type             EventType
+  thumbnail        String?
+  bannerImage      String?
+  
+  // Schedule
+  startDate        DateTime
+  endDate          DateTime
+  timezone         String   @default("Asia/Jakarta")
+  
+  // Location
+  venue            String?
+  address          String?
+  city             String?
+  isOnline         Boolean  @default(false)
+  meetingLink      String?
+  
+  // Registration
+  maxAttendees     Int?
+  registrationDeadline DateTime?
+  priceRegular     Int      @default(0)
+  isFree           Boolean  @default(false)
+  
+  // Content
+  agenda           Json?
+  speakers         Json?
+  
+  // Status
+  status           EventStatus @default(DRAFT)
+  isFeatured       Boolean  @default(false)
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  
+  registrations    EventRegistration[]
+  galleryItems     GalleryItem[]
+  
+  @@index([type])
+  @@index([startDate])
+  @@index([status])
+}
+
+enum EventType {
+  CONFERENCE
+  WEBINAR
+  WORKSHOP
+  TECHNICAL_SHARING
+  NETWORKING
+  FIELD_TRIP
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
+
+model EventRegistration {
+  id           String   @id @default(cuid())
+  userId       String
+  eventId      String
+  status       RegistrationStatus @default(PENDING)
+  ticketCode   String?  @unique
+  paymentId    String?  @unique
+  registeredAt DateTime @default(now())
+  confirmedAt  DateTime?
+  
+  user         User     @relation(fields: [userId], references: [id])
+  event        Event    @relation(fields: [eventId], references: [id])
+  payment      Payment? @relation(fields: [paymentId], references: [id])
+  
+  @@unique([userId, eventId])
+}
+
+// ─────────────────────────────────────────────
+// PAYMENTS
+// ─────────────────────────────────────────────
+
+model Payment {
+  id              String   @id @default(cuid())
+  userId          String
+  amount          Int
+  currency        String   @default("IDR")
+  status          PaymentStatus @default(PENDING)
+  method          String?
+  referenceNumber String?  @unique
+  invoiceNumber   String?  @unique
+  proofImage      String?
+  notes           String?
+  paidAt          DateTime?
+  confirmedAt     DateTime?
+  confirmedBy     String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  user            User     @relation(fields: [userId], references: [id])
+  trainingRegistration TrainingRegistration?
+  eventRegistration    EventRegistration?
+  
+  @@index([userId])
+  @@index([status])
+}
+
+enum PaymentStatus {
+  PENDING
+  WAITING_CONFIRMATION
+  CONFIRMED
+  REJECTED
+  REFUNDED
+  CANCELLED
+}
+
+// ─────────────────────────────────────────────
+// CERTIFICATES
+// ─────────────────────────────────────────────
+
+model Certificate {
+  id             String   @id @default(cuid())
+  userId         String
+  trainingId     String?
+  certificateNumber String @unique
+  title          String
+  issuedAt       DateTime @default(now())
+  expiresAt      DateTime?
+  fileUrl        String?
+  verificationCode String @unique
+  
+  user           User     @relation(fields: [userId], references: [id])
+  training       Training? @relation(fields: [trainingId], references: [id])
+  
+  @@index([userId])
+  @@index([certificateNumber])
+}
+
+// ─────────────────────────────────────────────
+// KNOWLEDGE CENTER
+// ─────────────────────────────────────────────
+
+model Article {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  excerpt      String?
+  content      String   @db.Text
+  coverImage   String?
+  category     ArticleCategory
+  tags         String[]
+  status       ArticleStatus @default(DRAFT)
+  isFeatured   Boolean  @default(false)
+  viewCount    Int      @default(0)
+  
+  authorId     String
+  author       User     @relation(fields: [authorId], references: [id])
+  
+  publishedAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  attachments  Attachment[]
+  comments     Comment[]
+  
+  @@index([category])
+  @@index([status])
+  @@index([slug])
+}
+
+enum ArticleCategory {
+  TECHNICAL_ARTICLE
+  INDUSTRY_INSIGHT
+  CASE_STUDY
+  TUTORIAL
+  PAPER
+  PRESENTATION
+  NEWS
+}
+
+enum ArticleStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+model Attachment {
+  id        String   @id @default(cuid())
+  articleId String
+  name      String
+  fileUrl   String
+  fileType  String
+  fileSize  Int?
+  article   Article  @relation(fields: [articleId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  authorId  String
+  articleId String
+  parentId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  author    User     @relation(fields: [authorId], references: [id])
+  article   Article  @relation(fields: [articleId], references: [id])
+  parent    Comment? @relation("CommentReplies", fields: [parentId], references: [id])
+  replies   Comment[] @relation("CommentReplies")
+}
+
+// ─────────────────────────────────────────────
+// GALLERY
+// ─────────────────────────────────────────────
+
+model GalleryItem {
+  id          String   @id @default(cuid())
+  title       String?
+  description String?
+  fileUrl     String
+  type        GalleryType @default(IMAGE)
+  category    String?
+  eventId     String?
+  isFeatured  Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  
+  event       Event?   @relation(fields: [eventId], references: [id])
+}
+
+enum GalleryType {
+  IMAGE
+  VIDEO
+}
+
+// ─────────────────────────────────────────────
+// SPONSORS & PARTNERS
+// ─────────────────────────────────────────────
+
+model Sponsor {
+  id        String   @id @default(cuid())
+  name      String
+  logo      String
+  website   String?
+  tier      SponsorTier @default(SUPPORTING)
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+enum SponsorTier {
+  PLATINUM
+  GOLD
+  SILVER
+  BRONZE
+  SUPPORTING
+}
+
+// ─────────────────────────────────────────────
+// NETWORKING
+// ─────────────────────────────────────────────
+
+model NetworkingRequest {
+  id          String   @id @default(cuid())
+  requesterId String
+  receiverId  String
+  status      NetworkStatus @default(PENDING)
+  message     String?
+  createdAt   DateTime @default(now())
+  
+  requester   User     @relation("Requester", fields: [requesterId], references: [id])
+  receiver    User     @relation("Receiver", fields: [receiverId], references: [id])
+  
+  @@unique([requesterId, receiverId])
+}
+
+enum NetworkStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
