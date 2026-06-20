@@ -1,19 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
+import { PaymentStatus } from '@prisma/client';
 
 const paymentSchema = z.object({
   userId: z.string(),
-  registrationId: z.string(),
   amount: z.number().positive(),
-  method: z.string(),
+  method: z.string().optional(),
   proofImage: z.string().url().optional(),
 });
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const status = searchParams.get('status');
+    const status = searchParams.get('status') as PaymentStatus | null;
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
 
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         userId: data.userId,
         amount: data.amount,
         method: data.method,
-        proofImage: data.proofUrl,
+        proofImage: data.proofImage,
         status: 'PENDING',
       },
     });
@@ -71,7 +71,7 @@ export async function PATCH(req: NextRequest) {
 
     const payment = await prisma.payment.update({
       where: { id: paymentId },
-      data: { status },
+      data: { status: status as PaymentStatus },
     });
 
     return NextResponse.json({ payment });
