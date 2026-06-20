@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
         user: { select: { name: true, email: true, memberNumber: true } },
         training: { select: { title: true, level: true, category: true } },
       },
-      orderBy: { createdAt: 'desc' },
+      orderBy: { issuedAt: 'desc' },
     });
 
     return NextResponse.json({ certificates });
