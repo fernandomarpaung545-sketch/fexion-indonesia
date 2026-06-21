@@ -1,30 +1,20 @@
-// src/app/page.tsx
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { Hero } from '@/components/home/Hero'
-import { GlanceMetrics } from '@/components/home/GlanceMetrics'
-import { WhyGeofera } from '@/components/home/WhyGeofera'
-import { TechnicalEcosystem } from '@/components/home/TechnicalEcosystem'
-import { FeaturedPrograms } from '@/components/home/FeaturedPrograms'
-import { UpcomingEvents } from '@/components/home/UpcomingEvents'
-import { KnowledgeHub } from '@/components/home/KnowledgeHub'
-import { MembershipBenefits } from '@/components/home/MembershipBenefits'
-import { JoinCTA } from '@/components/home/JoinCTA'
+// src/app/page.tsx — exact mockup recreation
+import { Navbar }       from '@/components/layout/Navbar'
+import { Footer }       from '@/components/layout/Footer'
+import { Hero }         from '@/components/home/Hero'
+import { GlanceMetrics }from '@/components/home/GlanceMetrics'
+import { ContentGrid }  from '@/components/home/ContentGrid'
+import { CTABanner }    from '@/components/home/CTABanner'
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="overflow-x-hidden">
+      <main>
         <Hero />
         <GlanceMetrics />
-        <WhyGeofera />
-        <TechnicalEcosystem />
-        <FeaturedPrograms />
-        <UpcomingEvents />
-        <KnowledgeHub />
-        <MembershipBenefits />
-        <JoinCTA />
+        <ContentGrid />
+        <CTABanner />
       </main>
       <Footer />
     </>

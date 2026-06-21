@@ -179,3 +179,30 @@ body {
 .shadow-crimson { box-shadow: 0 4px 20px rgba(230,57,70,0.25); }
 .shadow-glass   { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 .shadow-glass-lg { box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+
+/* ── GEOFERA BRAND UTILITIES ─── */
+.geofera-orange { color: #F97316; }
+.geofera-navy   { color: #0A2342; }
+.geofera-green  { color: #22C55E; }
+.geofera-blue   { color: #2563EB; }
+
+.bg-geofera-navy   { background-color: #0A2342; }
+.bg-geofera-orange { background-color: #F97316; }
+
+/* Section padding consistent */
+.section-padding { padding: 5rem 0; }
+@media (max-width: 768px) { .section-padding { padding: 3rem 0; } }
+
+/* 4-col content grid */
+.content-grid-4 {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 220px;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .content-grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .content-grid-4 { grid-template-columns: 1fr; }
+}
