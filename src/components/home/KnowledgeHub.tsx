@@ -1,56 +1,106 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Play } from 'lucide-react'
 
 const resources = [
-  { cat: 'ARTICLE',         catColor: '#2563EB', catBg: '#eff6ff', title: 'Unlocking Reservoir Potential Through Integrated Data',    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=180&fit=crop&q=85' },
-  { cat: 'CASE STUDY',      catColor: '#22C55E', catBg: '#f0fdf4', title: 'Successful Geosteering in High Angle Wells',              img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=320&h=180&fit=crop&q=85' },
-  { cat: 'TECHNICAL PAPER', catColor: '#0A2342', catBg: '#f1f5f9', title: 'Advanced Log Interpretation in Unconventional Reservoirs', img: 'https://images.unsplash.com/photo-1446776709462-d6b525c57bd3?w=320&h=180&fit=crop&q=85' },
-  { cat: 'LEARNING VIDEO',  catColor: '#F97316', catBg: '#fff7ed', title: 'Understanding Petrophysical Workflows',                    img: null },
+  {
+    cat: 'ARTICLE', catColor: '#2563EB', catBg: '#dbeafe',
+    title: 'Unlocking Reservoir Potential Through Integrated Petrophysical Workflows',
+    excerpt: 'A systematic approach combining core data, log analysis, and production history for better reservoir characterization.',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=240&fit=crop&q=85',
+    readTime: '8 min read',
+  },
+  {
+    cat: 'CASE STUDY', catColor: '#22C55E', catBg: '#dcfce7',
+    title: 'Successful Geosteering in High-Angle Wells: Natuna Basin Experience',
+    excerpt: 'How real-time LWD interpretation and geological modelling improved landing accuracy from 62% to 94%.',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=240&fit=crop&q=85',
+    readTime: '12 min read',
+  },
+  {
+    cat: 'TECHNICAL PAPER', catColor: '#7C3AED', catBg: '#ede9fe',
+    title: 'Advanced Log Interpretation Methods for Unconventional Reservoirs in SE Asia',
+    excerpt: 'Application of advanced machine learning algorithms in formation evaluation for tight carbonate plays.',
+    img: 'https://images.unsplash.com/photo-1446776709462-d6b525c57bd3?w=400&h=240&fit=crop&q=85',
+    readTime: '15 min read',
+  },
+  {
+    cat: 'LEARNING VIDEO', catColor: '#F97316', catBg: '#ffedd5',
+    title: 'Understanding Petrophysical Workflows: From Raw Logs to Reservoir Parameters',
+    excerpt: 'Step-by-step video series covering key petrophysical concepts for formation evaluation professionals.',
+    img: null,
+    readTime: '45 min video',
+    isVideo: true,
+  },
 ]
 
 export function KnowledgeHub() {
   return (
-    <section className="bg-[#F8FAFC] py-20">
-      <div className="container-tight">
+    <section className="section-py" style={{ background: 'var(--geo-surface)' }}>
+      <div className="container-geo">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-          <div>
-            <span className="text-xs font-bold tracking-widest uppercase text-[#F97316] block mb-2">Resources</span>
-            <h2 className="font-display font-black text-[#0A2342]" style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.5rem)' }}>Knowledge Hub</h2>
-          </div>
-          <Link href="/knowledge" className="inline-flex items-center gap-1.5 text-sm font-bold text-[#F97316] hover:underline">
-            View all resources <ArrowRight size={14}/>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <span className="eyebrow block mb-3">Resources</span>
+            <h2 className="font-display font-black text-gray-900"
+              style={{ fontSize: 'clamp(1.75rem,3vw,2.5rem)' }}>
+              Knowledge Hub
+            </h2>
+          </motion.div>
+          <Link href="/knowledge" className="btn btn-outline btn-sm">
+            View all resources <ArrowRight size={14} />
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid-responsive-4">
           {resources.map((r, i) => (
             <motion.div key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="card overflow-hidden group cursor-pointer"
             >
+              {/* Thumbnail */}
               {r.img ? (
-                <div className="relative h-36 overflow-hidden">
-                  <img src={r.img} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"/>
+                <div className="relative overflow-hidden" style={{ height: 148 }}>
+                  <img src={r.img} alt={r.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
               ) : (
-                <div className="h-36 bg-gray-900 flex items-center justify-center group-hover:bg-gray-800 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-[#F97316]/20 flex items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2">
-                      <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
+                <div className="relative flex items-center justify-center bg-gray-900 group-hover:bg-gray-800 transition-colors"
+                  style={{ height: 148 }}>
+                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center
+                    border-2 border-white/20 group-hover:scale-110 transition-transform">
+                    <Play size={22} className="text-white ml-1" />
+                  </div>
+                  <div className="absolute bottom-3 right-3">
+                    <span className="badge" style={{ background: r.catBg, color: r.catColor }}>
+                      {r.cat}
+                    </span>
                   </div>
                 </div>
               )}
+
               <div className="p-4">
-                <span className="inline-block text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full mb-2"
-                  style={{ background: r.catBg, color: r.catColor }}>{r.cat}</span>
-                <p className="font-bold text-sm text-[#0A2342] leading-snug">{r.title}</p>
+                {r.img && (
+                  <span className="badge mb-2" style={{ background: r.catBg, color: r.catColor }}>
+                    {r.cat}
+                  </span>
+                )}
+                <h3 className="font-bold text-gray-900 leading-snug mb-2"
+                  style={{ fontSize: '0.8125rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {r.title}
+                </h3>
+                <p className="text-xs text-gray-400 leading-relaxed mb-3"
+                  style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {r.excerpt}
+                </p>
+                <span className="text-xs font-semibold" style={{ color: r.catColor }}>
+                  {r.readTime}
+                </span>
               </div>
             </motion.div>
           ))}

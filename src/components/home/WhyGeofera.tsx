@@ -1,56 +1,91 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const reasons = [
-  { color: '#22C55E', emoji: '🌏', title: 'Regional Network',       desc: 'Connect with 3,000+ subsurface professionals across 15+ countries in Southeast Asia and beyond.' },
-  { color: '#2563EB', emoji: '🎓', title: 'Technical Excellence',   desc: '150+ curated training sessions, workshops and technical talks led by industry practitioners.' },
-  { color: '#F97316', emoji: '🤝', title: 'Industry Collaboration', desc: 'Bridge operators, service companies, universities, and government bodies under one platform.' },
-  { color: '#0A2342', emoji: '📈', title: 'Career Advancement',     desc: 'Exclusive job boards, mentorship programs, CPD tracking, and professional certification pathways.' },
-  { color: '#7c3aed', emoji: '💡', title: 'Knowledge Repository',   desc: 'Peer-reviewed technical papers, field case studies, and real-time insights from the region.' },
-  { color: '#0891b2', emoji: '🏆', title: 'Industry Recognition',   desc: 'Annual GEOFERA Excellence Awards celebrating outstanding contributions to subsurface science.' },
+const features = [
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+    ),
+    color: '#22C55E', bg: '#f0fdf4',
+    title: 'Knowledge Sharing',
+    desc: 'Access technical articles, webinars, case studies, and curated learning resources from subsurface professionals across the region.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="1.8" strokeLinecap="round">
+        <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+        <line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/>
+        <line x1="5" y1="19" x2="19" y2="19"/>
+      </svg>
+    ),
+    color: '#2563EB', bg: '#eff6ff',
+    title: 'Professional Network',
+    desc: 'Connect with geoscientists, formation evaluation specialists, drilling engineers, and upstream professionals across disciplines and regions.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+    ),
+    color: '#F97316', bg: '#fff7ed',
+    title: 'Professional Development',
+    desc: 'Build technical expertise and leadership capabilities through structured training programs, CPD tracking, and certification pathways.',
+  },
+  {
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
+    color: '#7C3AED', bg: '#f5f3ff',
+    title: 'Industry Collaboration',
+    desc: 'Share ideas, best practices, and innovations across operators, service companies, universities, and government bodies in the energy sector.',
+  },
 ]
 
 export function WhyGeofera() {
   return (
-    <section className="bg-[#F8FAFC] py-20">
-      <div className="container-tight">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <motion.span
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="text-xs font-bold tracking-widest uppercase text-[#F97316] block mb-3"
-          >
-            Why Join Us
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="font-display font-black text-[#0A2342] mb-4"
-            style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.5rem)' }}
-          >
+    <section className="section-py" style={{ background: 'var(--geo-surface)' }}>
+      <div className="container-geo">
+        <motion.div className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <span className="eyebrow block mb-4">Why Join Us</span>
+          <h2 className="font-display font-black text-gray-900 mb-4"
+            style={{ fontSize: 'clamp(1.75rem,3vw,2.5rem)' }}>
             Why GEOFERA?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="text-gray-500 text-base leading-relaxed max-w-xl mx-auto"
-          >
-            The region&apos;s most trusted platform for subsurface professionals to grow, connect, and contribute.
-          </motion.p>
-        </div>
+          </h2>
+          <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
+            The region&apos;s most trusted professional platform for subsurface practitioners to grow, connect, and contribute.
+          </p>
+        </motion.div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((r, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
+        <div className="grid-responsive-4">
+          {features.map((f, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 group"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="card p-7 group"
             >
-              <div className="text-3xl mb-4">{r.emoji}</div>
-              <h3 className="font-bold text-base mb-2 group-hover:text-[#0A2342] transition-colors" style={{ color: r.color }}>{r.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
+                style={{ background: f.bg }}>
+                {f.icon}
+              </div>
+              <h3 className="font-bold text-gray-900 mb-3"
+                style={{ fontSize: '1.0625rem', color: f.color }}>
+                {f.title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
         </div>

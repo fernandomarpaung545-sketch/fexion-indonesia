@@ -8,10 +8,9 @@ export const metadata: Metadata = {
     default: 'GEOFERA — Connecting Geoscience, Formation Evaluation, Drilling & Upstream Professionals',
     template: '%s | GEOFERA',
   },
-  description: 'GEOFERA is the regional professional platform for geoscience, formation evaluation, drilling and upstream professionals.',
-  keywords: ['GEOFERA', 'Formation Evaluation', 'Geoscience', 'Drilling', 'Upstream', 'Petrophysics', 'Subsurface'],
-  authors: [{ name: 'GEOFERA' }],
-  creator: 'GEOFERA by OliNesia',
+  description: 'GEOFERA is the regional professional platform for subsurface professionals. Join 3,000+ members across 15+ countries.',
+  keywords: ['GEOFERA','Formation Evaluation','Geoscience','Drilling','Upstream','Petrophysics','Subsurface','Indonesia'],
+  authors: [{ name: 'GEOFERA by OliNesia' }],
   openGraph: {
     type: 'website',
     url: 'https://geofera.olinesia.com',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body style={{ fontFamily: 'system-ui, -apple-system, sans-serif', margin: 0, padding: 0 }}>
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -1,85 +1,122 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check } from 'lucide-react'
+import { Check, ArrowRight } from 'lucide-react'
 
 const tiers = [
   {
-    name: 'Associate', price: 'Free', period: '',
+    name: 'Individual', price: 'Free', period: '',
     color: '#22C55E', border: '#bbf7d0', bg: '#f0fdf4',
-    features: ['Community forum access', 'Public webinars', 'Newsletter & updates', 'Member directory'],
+    tag: '',
+    features: [
+      'Community forum & discussions',
+      'Public webinar access',
+      'Monthly newsletter',
+      'Member directory access',
+      'Regional chapter membership',
+    ],
   },
   {
     name: 'Professional', price: 'USD 99', period: '/year',
-    color: '#2563EB', border: '#2563EB', bg: '#eff6ff',
-    featured: true,
-    features: ['All Associate benefits', 'Technical library access', 'Discounted training (20%)', 'CPD certificate tracking', 'Chapter & SIG access', 'Exclusive job board'],
+    color: '#2563EB', border: '#2563EB', bg: '#fff',
+    tag: 'Most Popular',
+    features: [
+      'All Individual benefits',
+      'Full technical library',
+      '20% training discount',
+      'CPD certificate tracking',
+      'SIG & chapter leadership',
+      'Exclusive job board access',
+      'Priority event registration',
+    ],
   },
   {
     name: 'Corporate', price: 'USD 499', period: '/year',
     color: '#0A2342', border: '#cbd5e1', bg: '#f8fafc',
-    features: ['All Professional benefits', '5 team seats included', 'Custom in-house training', 'Brand visibility package', 'Speaker slot priority', 'Partnership recognition'],
+    tag: '',
+    features: [
+      'All Professional (5 seats)',
+      'Custom in-house training',
+      'Brand visibility package',
+      'Speaking slot priority',
+      'Recruitment opportunities',
+      'Partnership recognition',
+      'Executive roundtable access',
+    ],
+  },
+  {
+    name: 'Student', price: 'Free', period: '',
+    color: '#7C3AED', border: '#ddd6fe', bg: '#f5f3ff',
+    tag: '',
+    features: [
+      'Learning resources library',
+      'Mentorship programme',
+      'Career development tools',
+      'Student webinar series',
+      'Alumni network access',
+    ],
   },
 ]
 
 export function MembershipBenefits() {
   return (
-    <section className="bg-white py-20">
-      <div className="container-tight">
-        <div className="text-center mb-14">
-          <span className="text-xs font-bold tracking-widest uppercase text-[#F97316] block mb-3">Membership</span>
-          <h2 className="font-display font-black text-[#0A2342] mb-4" style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.5rem)' }}>
+    <section className="section-py bg-white">
+      <div className="container-geo">
+        <motion.div className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <span className="eyebrow block mb-4">Membership</span>
+          <h2 className="font-display font-black text-gray-900 mb-4"
+            style={{ fontSize: 'clamp(1.75rem,3vw,2.5rem)' }}>
             Membership Benefits
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
-            Choose the membership tier that fits your professional journey and unlock GEOFERA&apos;s full ecosystem.
+          <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
+            Choose the membership that fits your professional journey and unlock GEOFERA&apos;s full ecosystem.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6 items-start">
+        <div className="grid-responsive-4">
           {tiers.map((t, i) => (
             <motion.div key={i}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-2xl p-7 relative"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="rounded-2xl p-7 relative flex flex-col"
               style={{
-                background: t.featured ? '#fff' : t.bg,
-                border: `${t.featured ? '2px' : '1.5px'} solid ${t.border}`,
-                boxShadow: t.featured ? '0 16px 48px rgba(37,99,235,0.14)' : '0 2px 8px rgba(0,0,0,0.04)',
+                background: t.bg,
+                border: i === 1 ? `2px solid ${t.color}` : `1.5px solid ${t.border}`,
+                boxShadow: i === 1 ? `0 16px 48px ${t.color}1a` : '0 2px 8px rgba(0,0,0,0.04)',
               }}
             >
-              {t.featured && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full bg-[#2563EB]">
-                  MOST POPULAR
-                </div>
+              {t.tag && (
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 badge text-white px-4"
+                  style={{ background: t.color }}>
+                  {t.tag}
+                </span>
               )}
-
               <h3 className="font-display font-black text-lg mb-1" style={{ color: t.color }}>{t.name}</h3>
               <div className="mb-5">
-                <span className="font-black text-2xl text-[#0A2342]">{t.price}</span>
+                <span className="font-display font-black text-2xl" style={{ color: '#111827' }}>{t.price}</span>
                 <span className="text-gray-400 text-sm">{t.period}</span>
               </div>
-
-              <ul className="space-y-2.5 mb-7">
+              <ul className="space-y-2.5 mb-8 flex-1">
                 {t.features.map((f, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <Check size={14} className="mt-0.5 flex-shrink-0" style={{ color: t.color }}/>
+                    <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: t.color }} />
                     {f}
                   </li>
                 ))}
               </ul>
-
               <Link href="/register"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90"
-                style={{
-                  background: t.featured ? t.color : 'transparent',
-                  color: t.featured ? '#fff' : t.color,
-                  border: `2px solid ${t.color}`,
-                }}
+                className="btn w-full justify-center"
+                style={
+                  i === 1
+                    ? { background: t.color, color: '#fff', boxShadow: `0 4px 16px ${t.color}35` }
+                    : { background: 'transparent', color: t.color, border: `2px solid ${t.color}` }
+                }
               >
-                Get Started <ArrowRight size={14}/>
+                Get Started <ArrowRight size={14} />
               </Link>
             </motion.div>
           ))}
