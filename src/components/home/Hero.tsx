@@ -85,14 +85,11 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6"
           >
-            Connecting{' '}
-            <span className="text-gradient-crimson">Geoscience,</span>
+            Connecting Geoscience, Operation &amp;{' '}
+            <span className="text-gradient-crimson">Formation Evaluations</span>
             <br />
-            Operations &amp; Formation Evaluation,
-            <br />
-            and{' '}
-            <span className="text-gradient-gold">Drilling</span>
-            <br />
+            Petrophysics and{' '}
+            <span className="text-gradient-gold">Drilling &amp; Completion</span>{' '}
             Professionals
           </motion.h1>
 
