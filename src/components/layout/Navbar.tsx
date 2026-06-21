@@ -76,7 +76,7 @@ export function Navbar() {
                 <span className="text-white font-display font-black text-sm">G</span>
               </div>
               <div>
-                <div className="font-display font-black text-gray-900 dark:text-white text-base leading-none">FEXION</div>
+                <div className="font-display font-black text-gray-900 dark:text-white text-base leading-none">GEOFERA</div>
                 <div className="text-[9px] text-gray-400 font-medium tracking-wider">Formation Evaluation Excellence</div>
               </div>
             </Link>
@@ -154,7 +154,7 @@ export function Navbar() {
                     <LogIn size={14} /> Login
                   </Link>
                   <Link href="/register" className="btn-primary text-sm px-4 py-2">
-                    Join FEXION
+                    Join GEOFERA
                   </Link>
                 </>
               )}
@@ -217,7 +217,7 @@ export function Navbar() {
                     <LogIn size={15} /> Login
                   </Link>
                   <Link href="/register" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-2 w-full btn-primary">
-                    Join FEXION
+                    Join GEOFERA
                   </Link>
                 </div>
               </div>

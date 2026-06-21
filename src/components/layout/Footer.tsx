@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube, ExternalLink } from 
 
 const footerLinks = {
   'Platform': [
-    { label: 'About FEXION', href: '/about' },
+    { label: 'About GEOFERA', href: '/about' },
     { label: 'Community', href: '/community' },
     { label: 'Knowledge Center', href: '/knowledge' },
     { label: 'Gallery', href: '/gallery' },
@@ -39,7 +39,7 @@ export function Footer() {
                 <span className="text-white font-display font-black text-lg">G</span>
               </div>
               <div>
-                <div className="font-display font-black text-white text-lg leading-none">FEXION</div>
+                <div className="font-display font-black text-white text-lg leading-none">GEOFERA</div>
                 <div className="text-[11px] text-white/40 font-medium tracking-wider uppercase mt-1">Indonesia</div>
               </div>
             </Link>
@@ -52,8 +52,8 @@ export function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-sm text-white/50">
                 <Mail size={14} className="text-crimson-500 flex-shrink-0" />
-                <a href="mailto:info@fexion-indonesia.org" className="hover:text-white transition-colors">
-                  info@fexion-indonesia.org
+                <a href="mailto:info@geofera.olinesia.com" className="hover:text-white transition-colors">
+                  info@geofera.olinesia.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/50">
@@ -71,9 +71,9 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {[
-                { icon: Linkedin, href: 'https://linkedin.com/company/fexion-indonesia', label: 'LinkedIn' },
-                { icon: Instagram, href: 'https://instagram.com/fexion.indonesia', label: 'Instagram' },
-                { icon: Youtube, href: 'https://youtube.com/@fexion-indonesia', label: 'YouTube' },
+                { icon: Linkedin, href: 'https://linkedin.com/company/geofera-indonesia', label: 'LinkedIn' },
+                { icon: Instagram, href: 'https://instagram.com/geofera.indonesia', label: 'Instagram' },
+                { icon: Youtube, href: 'https://youtube.com/@geofera-indonesia', label: 'YouTube' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -126,7 +126,7 @@ export function Footer() {
             <span>Recognized by SKK Migas</span>
           </div>
           <div className="text-center sm:text-right">
-            © {new Date().getFullYear()} FEXION Indonesia. All rights reserved.
+            © {new Date().getFullYear()} GEOFERA Indonesia. All rights reserved.
           </div>
         </div>
       </div>

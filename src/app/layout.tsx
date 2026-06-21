@@ -18,13 +18,13 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: 'FEXION — Formation Evaluation, Petrophysics & Subsurface Excellence through Integrated OliNesia Network',
-    template: '%s | FEXION Indonesia',
+    default: 'GEOFERA — Geology Operation & Formation Evaluation Indonesia',
+    template: '%s | GEOFERA Indonesia',
   },
   description:
     'The premier professional community for Formation Evaluation, Petrophysics, Wellsite Geology, Mud Logging, Geosteering, and Subsurface Integration professionals in Indonesia.',
   keywords: [
-    'FEXION Indonesia',
+    'GEOFERA Indonesia',
     'Formation Evaluation',
     'Petrophysics',
     'Wellsite Geology',
@@ -35,20 +35,20 @@ export const metadata: Metadata = {
     'Geology Community',
     'CCS Indonesia',
   ],
-  authors: [{ name: 'FEXION Indonesia' }],
-  creator: 'FEXION Indonesia',
+  authors: [{ name: 'GEOFERA Indonesia' }],
+  creator: 'GEOFERA Indonesia',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://fexion-indonesia.org',
-    siteName: 'FEXION Indonesia',
-    title: 'FEXION Indonesia — Professional Geoscience Community',
+    url: 'https://geofera.olinesia.com',
+    siteName: 'GEOFERA Indonesia',
+    title: 'GEOFERA Indonesia — Professional Geoscience Community',
     description: 'Indonesia Community for Geology, Formation Evaluation, Petrophysics and Subsurface Integration.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FEXION Indonesia',
+    title: 'GEOFERA Indonesia',
     description: 'Indonesia Community for Geology, Formation Evaluation, Petrophysics and Subsurface Integration.',
   },
   icons: {

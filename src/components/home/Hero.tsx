@@ -101,7 +101,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-lg md:text-xl text-white/55 leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            FEXION — Formation Evaluation, Petrophysics & Subsurface Excellence through Integrated OliNesia Network. Indonesia's community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration.
+            GEOFERA — Geology Operation & Formation Evaluation Indonesia. Indonesia's community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration.
           </motion.p>
 
           {/* CTAs */}

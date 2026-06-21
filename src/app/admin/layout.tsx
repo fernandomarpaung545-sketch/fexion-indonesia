@@ -38,7 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <span className="text-white font-display font-black text-sm">G</span>
             </div>
             <div>
-              <div className="font-display font-black text-sm text-[var(--text-primary)] leading-none">FEXION</div>
+              <div className="font-display font-black text-sm text-[var(--text-primary)] leading-none">GEOFERA</div>
               <div className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider">Admin Panel</div>
             </div>
           </Link>
@@ -87,7 +87,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="w-7 h-7 rounded-full bg-crimson-gradient flex items-center justify-center text-white font-bold text-xs">A</div>
             <div className="flex-1 min-w-0">
               <div className="text-xs font-semibold text-[var(--text-primary)] truncate">Admin</div>
-              <div className="text-[10px] text-[var(--text-muted)] truncate">admin@fexion-indonesia.org</div>
+              <div className="text-[10px] text-[var(--text-muted)] truncate">admin@geofera.olinesia.com</div>
             </div>
             <button className="text-[var(--text-muted)] hover:text-crimson-500 transition-colors">
               <LogOut size={14} />

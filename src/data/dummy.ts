@@ -124,8 +124,8 @@ export const featuredTrainings: Partial<Training>[] = [
 export const upcomingEvents: Partial<Event>[] = [
   {
     id: 'e1',
-    title: 'FEXION Annual Conference 2025',
-    slug: 'fexion-annual-conference-2025',
+    title: 'GEOFERA Annual Conference 2025',
+    slug: 'geofera-annual-conference-2025',
     shortDescription: 'Indonesia\'s premier formation evaluation and geoscience conference. Two days of technical sessions, workshops, and industry networking.',
     type: 'CONFERENCE',
     thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=450&fit=crop&q=80',
@@ -254,9 +254,9 @@ export const committeeMembers = [
 ]
 
 export const testimonials = [
-  { id: 'tm1', name: 'Agus Prasetyo', title: 'Senior Formation Evaluator, Chevron Pacific Indonesia', photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&q=80', text: 'FEXION has completely elevated my professional network. The technical quality of the trainings is on par with SPE workshops, but grounded in Indonesian basin challenges.', rating: 5 },
+  { id: 'tm1', name: 'Agus Prasetyo', title: 'Senior Formation Evaluator, Chevron Pacific Indonesia', photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&q=80', text: 'GEOFERA has completely elevated my professional network. The technical quality of the trainings is on par with SPE workshops, but grounded in Indonesian basin challenges.', rating: 5 },
   { id: 'tm2', name: 'Ratna Sari, M.Sc.', title: 'Petrophysicist, ExxonMobil Cepu', photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&q=80', text: 'The annual conference brings together the best minds in Indonesian subsurface. I\'ve made connections here that have directly advanced my career.', rating: 5 },
-  { id: 'tm3', name: 'Budi Hartanto', title: 'Wellsite Geologist, Baker Hughes', photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80', text: 'As a wellsite geologist working remotely on rigs, FEXION online webinars keep me connected with the technical community and up-to-date with industry developments.', rating: 5 },
+  { id: 'tm3', name: 'Budi Hartanto', title: 'Wellsite Geologist, Baker Hughes', photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80', text: 'As a wellsite geologist working remotely on rigs, GEOFERA online webinars keep me connected with the technical community and up-to-date with industry developments.', rating: 5 },
   { id: 'tm4', name: 'Dr. Lucia Tambunan', title: 'Reservoir Geologist, Vico Indonesia', photo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&q=80', text: 'The knowledge center is a goldmine of Indonesian basin-specific case studies and technical papers. It saves hours of searching.', rating: 5 },
 ]
 

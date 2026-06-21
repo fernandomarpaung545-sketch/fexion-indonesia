@@ -39,7 +39,7 @@ export default function LoginPage() {
             <span className="text-white font-display font-black text-xl">G</span>
           </div>
           <h1 className="text-white font-display font-bold text-2xl">Welcome Back</h1>
-          <p className="text-navy-400 text-sm mt-1">Sign in to your FEXION Indonesia account</p>
+          <p className="text-navy-400 text-sm mt-1">Sign in to your GEOFERA Indonesia account</p>
         </motion.div>
 
         {/* Card */}
@@ -124,7 +124,7 @@ export default function LoginPage() {
         </motion.div>
 
         <p className="text-center text-navy-400 text-sm mt-6">
-          New to FEXION?{' '}
+          New to GEOFERA?{' '}
           <Link href="/register" className="text-crimson-400 hover:text-crimson-300 font-medium transition-colors">
             Create free account
           </Link>

@@ -23,10 +23,10 @@ export default function AboutPage() {
           <div className="container-tight relative text-center max-w-3xl mx-auto">
             <span className="tag-crimson mb-5 inline-flex">About Us</span>
             <h1 className="font-display font-black text-5xl md:text-6xl text-white mb-5 leading-tight">
-              About FEXION Indonesia
+              About GEOFERA Indonesia
             </h1>
             <p className="text-xl text-white/55 leading-relaxed">
-              FEXION stands for Formation Evaluation, Petrophysics & Subsurface Excellence through Integrated OliNesia Network. We are Indonesia's premier community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration — built by practitioners, for practitioners.
+              GEOFERA stands for Geology Operation & Formation Evaluation Indonesia. We are Indonesia's premier professional community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration — built by practitioners, for practitioners.
             </p>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
           <div>
             <h2 className="section-title text-center mb-3">Steering Committee</h2>
             <p className="section-subtitle text-center mx-auto mb-12">
-              Experienced practitioners guiding FEXION's strategic direction.
+              Experienced practitioners guiding GEOFERA's strategic direction.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
               {committeeMembers.map((member) => (
