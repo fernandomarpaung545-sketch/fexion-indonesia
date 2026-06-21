@@ -1,9 +1,9 @@
-import { Navbar }     from '@/components/layout/Navbar'
-import { Footer }     from '@/components/layout/Footer'
-import { Hero }       from '@/components/home/Hero'
-import { StatsRow }   from '@/components/home/StatsRow'
-import { ContentGrid }from '@/components/home/ContentGrid'
-import { CTABanner }  from '@/components/home/CTABanner'
+import { Navbar }      from '@/components/layout/Navbar'
+import { Footer }      from '@/components/layout/Footer'
+import { Hero }        from '@/components/home/Hero'
+import { StatsRow }    from '@/components/home/StatsRow'
+import { ContentGrid } from '@/components/home/ContentGrid'
+import { CTABanner }   from '@/components/home/CTABanner'
 
 export const metadata = {
   title: 'GEOFERA — Connecting Geoscience, Formation Evaluation, Drilling & Upstream Professionals',
