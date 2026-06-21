@@ -73,23 +73,32 @@ export function Hero() {
       {/* ── MAIN HERO ─────────────────────────────────────────────── */}
       <div className="flex-1 relative overflow-hidden">
 
-        {/* Hero background image — right side */}
-        <div className="absolute inset-0 left-[38%]">
-          <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=900&fit=crop&q=85"
-            alt="Drilling Rig"
-            className="w-full h-full object-cover"
-          />
-          {/* Geological cross-section overlay bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-2/5">
+        {/* Hero background — full right panel */}
+        <div className="absolute inset-0 left-[36%]">
+          {/* Top: Drilling rig photo */}
+          <div className="absolute inset-0 bottom-[35%]">
             <img
-              src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=1200&h=400&fit=crop&q=80"
-              alt="Geological layers"
-              className="w-full h-full object-cover opacity-80"
+              src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1400&h=800&fit=crop&q=90"
+              alt="Offshore Drilling Rig"
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          {/* Gradient blend left edge */}
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent" />
+          {/* Bottom: Geological cross-section */}
+          <div className="absolute bottom-0 left-0 right-0 top-[65%]">
+            <img
+              src="https://images.unsplash.com/photo-1559825481-12a05cc00344?w=1400&h=500&fit=crop&q=85"
+              alt="Geological layers"
+              className="w-full h-full object-cover"
+            />
+            {/* wave blend between rig and geology */}
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-sky-200/60 to-transparent" />
+          </div>
+          {/* Seamless blend between top and bottom */}
+          <div className="absolute left-0 right-0 top-[58%] h-[15%] bg-gradient-to-b from-sky-100/0 via-sky-200/30 to-transparent" />
+          {/* Left fade into white */}
+          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white to-transparent" />
+          {/* Sky tone at very top */}
+          <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white/20 to-transparent" />
         </div>
 
         <div className="relative container-tight pt-10 pb-6">
