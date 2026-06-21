@@ -68,11 +68,11 @@ export function Navbar() {
           : 'bg-white dark:bg-navy-950 border-b border-gray-100 dark:border-navy-800'
       }`}>
         <div className="container-tight">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
 
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <img src="/geofera-logo.png" alt="GEOFERA" className="h-16 w-auto object-contain" />
+              <img src="/geofera-logo.png" alt="GEOFERA" className="h-20 w-auto object-contain py-1" />
             </Link>
 
             {/* Desktop Nav */}

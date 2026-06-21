@@ -35,7 +35,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-5 group">
-              <img src="/geofera-logo.png" alt="GEOFERA" className="h-20 w-auto object-contain brightness-0 invert" />
+              <img src="/geofera-logo.png" alt="GEOFERA" className="h-28 w-auto object-contain brightness-0 invert" />
             </Link>
 
             <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-xs">

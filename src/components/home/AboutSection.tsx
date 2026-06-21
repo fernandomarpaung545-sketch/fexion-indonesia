@@ -50,7 +50,7 @@ export function AboutSection() {
 
               {/* Center content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                <img src="/geofera-logo.png" alt="GEOFERA" className="h-48 w-auto object-contain brightness-0 invert mb-2" />
+                <img src="/geofera-logo.png" alt="GEOFERA" className="w-4/5 h-auto object-contain brightness-0 invert" />
               </div>
 
               {/* Corner badges */}
