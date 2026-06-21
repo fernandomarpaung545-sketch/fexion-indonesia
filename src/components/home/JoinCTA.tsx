@@ -1,77 +1,29 @@
 'use client'
-// src/components/home/JoinCTA.tsx
-
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
-import { ArrowRight, Users, BookOpen, Calendar } from 'lucide-react'
-
-const benefits = [
-  { icon: Users, label: 'Join 2,847+ professionals' },
-  { icon: BookOpen, label: 'Access 100+ technical resources' },
-  { icon: Calendar, label: 'Priority access to events & trainings' },
-]
+import { motion } from 'framer-motion'
 
 export function JoinCTA() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 })
-
   return (
-    <section ref={ref} className="section-padding bg-navy-950 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 hero-grid opacity-50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-crimson-500/5 via-transparent to-gold-500/5" />
-
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-crimson-500/8 blur-[80px] rounded-full" />
-
-      <div className="relative container-tight">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 glass-card-dark rounded-full px-4 py-2 mb-8">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-glow" />
-            <span className="text-xs font-semibold text-white/60 uppercase tracking-widest">Membership Open</span>
-          </div>
-
-          <h2 className="font-display font-black text-4xl md:text-5xl text-white leading-tight mb-5">
-            Ready to Join<br />
-            <span className="text-gradient-crimson">GEOFERA Indonesia?</span>
-          </h2>
-
-          <p className="text-lg text-white/55 mb-10 leading-relaxed">
-            Become part of Indonesia's most active formation evaluation and geoscience community. Free membership for individual professionals.
-          </p>
-
-          {/* Benefits row */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            {benefits.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-sm text-white/50">
-                <Icon size={15} className="text-crimson-500" />
-                {label}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/register" className="btn-primary text-base px-8 py-4 group">
-              Create Free Account
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link href="/about" className="btn-secondary text-base px-8 py-4">
-              Learn More
-            </Link>
-          </div>
-
-          {/* Fine print */}
-          <p className="text-xs text-white/25 mt-6">
-            Free for individual professionals. Corporate membership available for organizations.
-          </p>
-        </motion.div>
+    <section style={{ background: '#0d1b2e', padding: '2rem 0' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <div>
+          <h2 style={{ fontWeight: 800, fontSize: '1.375rem', color: '#fff', marginBottom: 4 }}>Join the GEOFERA Community</h2>
+          <p style={{ color: '#94a3b8', fontSize: '0.9375rem' }}>Shape the future of technical excellence together.</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', flexWrap: 'wrap' }}>
+          <Link href="/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#f97316', color: '#fff', fontWeight: 700, fontSize: '0.9375rem', padding: '0.75rem 1.75rem', borderRadius: 8, textDecoration: 'none' }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Join GEOFERA
+          </Link>
+          <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1.5px solid #334155', color: '#e2e8f0', fontWeight: 600, fontSize: '0.9375rem', padding: '0.75rem 1.75rem', borderRadius: 8, textDecoration: 'none' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/><path d="M19 8H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"/><path d="M12 16v6"/></svg>
+            Become a Speaker
+          </Link>
+          <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1.5px solid #334155', color: '#e2e8f0', fontWeight: 600, fontSize: '0.9375rem', padding: '0.75rem 1.75rem', borderRadius: 8, textDecoration: 'none' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Become a Partner
+          </Link>
+        </div>
       </div>
     </section>
   )

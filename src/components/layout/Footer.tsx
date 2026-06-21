@@ -1,126 +1,66 @@
 'use client'
-// src/components/layout/Footer.tsx
-
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube, ExternalLink } from 'lucide-react'
+import { Linkedin, Youtube, Mail } from 'lucide-react'
 
-const footerLinks = {
-  'Platform': [
-    { label: 'About GEOFERA', href: '/about' },
-    { label: 'Community', href: '/community' },
-    { label: 'Knowledge Center', href: '/knowledge' },
-    { label: 'Gallery', href: '/gallery' },
-  ],
-  'Programs': [
-    { label: 'All Trainings', href: '/training' },
-    { label: 'Upcoming Events', href: '/events' },
-    { label: 'Conferences', href: '/events?type=CONFERENCE' },
-    { label: 'Webinars', href: '/events?type=WEBINAR' },
-  ],
-  'Disciplines': [
-    { label: 'Formation Evaluation', href: '/training?cat=FORMATION_EVALUATION' },
-    { label: 'Petrophysics', href: '/training?cat=PETROPHYSICS' },
-    { label: 'Wellsite Geology', href: '/training?cat=WELLSITE_GEOLOGY' },
-    { label: 'Geosteering', href: '/training?cat=GEOSTEERING' },
-    { label: 'CCS & Energy Transition', href: '/training?cat=CCS_ENERGY_TRANSITION' },
-  ],
-}
+const footerLinks = [
+  { heading: 'About GEOFERA', links: [{ label: 'Our Mission', href: '/about' }, { label: 'Our Vision', href: '/about' }, { label: 'Our Team', href: '/about' }, { label: 'Careers', href: '/contact' }] },
+  { heading: 'Training', links: [{ label: 'Courses', href: '/training' }, { label: 'Learning Paths', href: '/training' }, { label: 'Certification', href: '/training' }, { label: 'Training Calendar', href: '/training' }] },
+  { heading: 'Events', links: [{ label: 'Webinars', href: '/events' }, { label: 'Workshops', href: '/events' }, { label: 'Conferences', href: '/events' }, { label: 'Event Calendar', href: '/events' }] },
+  { heading: 'Community', links: [{ label: 'Membership', href: '/community' }, { label: 'Chapters', href: '/community' }, { label: 'Directory', href: '/community' }, { label: 'Forums', href: '/community' }] },
+  { heading: 'Knowledge Hub', links: [{ label: 'Articles', href: '/knowledge' }, { label: 'Case Studies', href: '/knowledge' }, { label: 'Technical Papers', href: '/knowledge' }, { label: 'Videos', href: '/knowledge' }] },
+  { heading: 'Membership', links: [{ label: 'Membership Benefits', href: '/register' }, { label: 'Membership Types', href: '/register' }, { label: 'Join Now', href: '/register' }] },
+  { heading: 'Contact Us', links: [
+    { label: 'info@geofera.olinesia.com', href: 'mailto:info@geofera.olinesia.com' },
+    { label: '+62 21 1234 5678', href: 'tel:+622112345678' },
+    { label: 'Jakarta, Indonesia', href: '#' },
+  ]},
+]
 
 export function Footer() {
   return (
-    <footer className="bg-navy-950 border-t border-white/[0.06]">
-      {/* Main Footer */}
-      <div className="container-tight py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center mb-5 group">
-              <img src="/geofera-logo.png" alt="GEOFERA" className="h-28 w-auto object-contain brightness-0 invert" />
-            </Link>
-
-            <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-xs">
-              Formation Evaluation, Petrophysics & Subsurface Excellence through Integrated OliNesia Network — Indonesia's community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration.
+    <footer style={{ background: '#0d1b2e', color: '#94a3b8' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '3rem 1.5rem 1.5rem' }}>
+        {/* Top: logo + columns */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(7, 1fr)', gap: '2rem', marginBottom: '2.5rem' }}>
+          {/* Brand */}
+          <div>
+            <img src="/geofera-logo.png" alt="GEOFERA" style={{ height: 44, width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', marginBottom: '1rem' }} />
+            <p style={{ fontSize: '0.8125rem', lineHeight: 1.7, color: '#64748b', maxWidth: '16rem' }}>
+              Connecting Geoscience, Formation Evaluation, Drilling &amp; Upstream Professionals Across the Region.
             </p>
-
-            {/* Contact */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3 text-sm text-white/50">
-                <Mail size={14} className="text-crimson-500 flex-shrink-0" />
-                <a href="mailto:info@geofera.olinesia.com" className="hover:text-white transition-colors">
-                  info@geofera.olinesia.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/50">
-                <Phone size={14} className="text-crimson-500 flex-shrink-0" />
-                <a href="tel:+6221XXXXXXXX" className="hover:text-white transition-colors">
-                  +62 21 XXXX XXXX
-                </a>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-white/50">
-                <MapPin size={14} className="text-crimson-500 flex-shrink-0 mt-0.5" />
-                <span>Jakarta, Indonesia</span>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {[
-                { icon: Linkedin, href: 'https://linkedin.com/company/geofera-indonesia', label: 'LinkedIn' },
-                { icon: Instagram, href: 'https://instagram.com/geofera.indonesia', label: 'Instagram' },
-                { icon: Youtube, href: 'https://youtube.com/@geofera-indonesia', label: 'YouTube' },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/[0.06] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 hover:border-white/15 transition-all duration-200"
-                >
-                  <Icon size={16} />
+            <div style={{ display: 'flex', gap: '0.625rem', marginTop: '1rem' }}>
+              {[Linkedin, Youtube, Mail].map((Icon, i) => (
+                <a key={i} href="#" style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #1e293b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', textDecoration: 'none' }}>
+                  <Icon size={14} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link Columns */}
-          {Object.entries(footerLinks).map(([group, links]) => (
-            <div key={group}>
-              <h4 className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">{group}</h4>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/50 hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </Link>
+          {/* Link columns */}
+          {footerLinks.map((col) => (
+            <div key={col.heading}>
+              <h4 style={{ fontWeight: 700, fontSize: '0.8125rem', color: '#e2e8f0', marginBottom: '0.875rem' }}>{col.heading}</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} style={{ fontSize: '0.8125rem', color: '#64748b', textDecoration: 'none' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#f97316')}
+                      onMouseLeave={e => (e.currentTarget.style.color = '#64748b')}
+                    >{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Affiliation Bar */}
-      <div className="border-t border-white/[0.04] py-5">
-        <div className="container-tight flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
-            <span>Member of:</span>
-            <a href="https://iatmi.or.id" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors flex items-center gap-1">
-              IATMI <ExternalLink size={10} />
-            </a>
-            <span className="opacity-30">•</span>
-            <a href="https://iagi.or.id" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors flex items-center gap-1">
-              IAGI <ExternalLink size={10} />
-            </a>
-            <span className="opacity-30">•</span>
-            <span>Recognized by SKK Migas</span>
-          </div>
-          <div className="text-center sm:text-right">
-            © {new Date().getFullYear()} GEOFERA Indonesia. All rights reserved.
+        {/* Bottom bar */}
+        <div style={{ borderTop: '1px solid #1e293b', paddingTop: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <p style={{ fontSize: '0.8125rem', color: '#475569' }}>© 2024 GEOFERA by OliNesia. All Rights Reserved.</p>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <Link href="#" style={{ fontSize: '0.8125rem', color: '#475569', textDecoration: 'none' }}>Privacy Policy</Link>
+            <Link href="#" style={{ fontSize: '0.8125rem', color: '#475569', textDecoration: 'none' }}>Terms of Use</Link>
           </div>
         </div>
       </div>

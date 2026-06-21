@@ -1,211 +1,114 @@
 'use client'
-
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
-import { Menu, X, Sun, Moon, ChevronDown, LogIn, User } from 'lucide-react'
+import { useState } from 'react'
+import { Search, Menu, X, ChevronDown, User } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  {
-    label: 'Training',
-    href: '/training',
-    children: [
-      { label: 'All Trainings', href: '/training' },
-      { label: 'Formation Evaluation', href: '/training?cat=FORMATION_EVALUATION' },
-      { label: 'Petrophysics', href: '/training?cat=PETROPHYSICS' },
-      { label: 'Wellsite Geology', href: '/training?cat=WELLSITE_GEOLOGY' },
-      { label: 'Mud Logging', href: '/training?cat=MUD_LOGGING' },
-      { label: 'Geosteering', href: '/training?cat=GEOSTEERING' },
-      { label: 'Reservoir Geology', href: '/training?cat=RESERVOIR_GEOLOGY' },
-      { label: 'CCS & Energy Transition', href: '/training?cat=CCS_ENERGY_TRANSITION' },
-      { label: 'Drilling & Subsurface', href: '/training?cat=DRILLING_SUBSURFACE' },
-    ],
-  },
-  {
-    label: 'Events',
-    href: '/events',
-    children: [
-      { label: 'All Events', href: '/events' },
-      { label: 'Conferences', href: '/events?type=CONFERENCE' },
-      { label: 'Webinars', href: '/events?type=WEBINAR' },
-      { label: 'Workshops', href: '/events?type=WORKSHOP' },
-    ],
-  },
+  { label: 'Training', href: '/training', children: [
+    { label: 'All Trainings', href: '/training' },
+    { label: 'Formation Evaluation', href: '/training?cat=FORMATION_EVALUATION' },
+    { label: 'Petrophysics', href: '/training?cat=PETROPHYSICS' },
+    { label: 'Wellsite Geology', href: '/training?cat=WELLSITE_GEOLOGY' },
+    { label: 'Drilling & Subsurface', href: '/training?cat=DRILLING_SUBSURFACE' },
+  ]},
+  { label: 'Events', href: '/events', children: [
+    { label: 'All Events', href: '/events' },
+    { label: 'Webinars', href: '/events?type=WEBINAR' },
+    { label: 'Workshops', href: '/events?type=WORKSHOP' },
+    { label: 'Conferences', href: '/events?type=CONFERENCE' },
+  ]},
   { label: 'Community', href: '/community' },
-  { label: 'Knowledge', href: '/knowledge' },
-  { label: 'Gallery', href: '/gallery' },
+  { label: 'Knowledge Hub', href: '/knowledge' },
+  { label: 'Membership', href: '/register' },
   { label: 'Contact', href: '/contact' },
 ]
 
 export function Navbar() {
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
   const { data: session } = useSession()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const isActive = (href: string) => pathname === href
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <div className="container-tight">
-          <div className="flex items-center justify-between h-[68px]">
+      <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: '#fff', borderBottom: '1px solid #e5e7eb', boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center group">
-              <img src="/geofera-logo.png" alt="GEOFERA" style={{ height: "52px", width: "auto", objectFit: "contain" }} />
-            </Link>
+          {/* Logo */}
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <img src="/geofera-logo.png" alt="GEOFERA" style={{ height: 48, width: 'auto', objectFit: 'contain' }} />
+          </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-0.5">
-              {navItems.map((item) => (
-                <div
-                  key={item.href}
-                  className="relative"
-                  onMouseEnter={() => item.children && setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <Link
-                    href={item.href}
-                    className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
-                      isActive(item.href)
-                        ? 'text-crimson-600 bg-crimson-50 dark:bg-crimson-900/20 dark:text-crimson-400'
-                        : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
-                    }`}
-                  >
-                    {item.label}
-                    {item.children && (
-                      <ChevronDown size={13} className={`transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''}`} />
-                    )}
-                  </Link>
-
-                  {/* Dropdown */}
-                  {item.children && (
-                    <AnimatePresence>
-                      {openDropdown === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                          transition={{ duration: 0.12 }}
-                          className="absolute top-full left-0 mt-1.5 w-56 bg-white dark:bg-navy-900 rounded-xl border border-gray-100 dark:border-navy-700 shadow-xl overflow-hidden"
-                        >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              className="flex items-center px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-crimson-50 dark:hover:bg-crimson-900/10 transition-colors"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
-              ))}
-            </nav>
-
-            {/* Right Actions */}
-            <div className="flex items-center gap-2">
-              <button className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all">
-                <Search size={17} />
-              </button>
-
-              {session ? (
-                <Link href="/dashboard" className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-white/15 transition-all">
-                  <User size={15} />
-                  <span className="hidden sm:block">Dashboard</span>
-                </Link>
-              ) : (
-                <>
-                  <Link href="/login" className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all">
-                    <LogIn size={14} /> Login
-                  </Link>
-                  <Link href="/register" className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
-                    Join GEOFERA
-                  </Link>
-                </>
-              )}
-
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-lg text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
+          {/* Desktop Nav */}
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '0.125rem' }} className="hidden lg:flex">
+            {navItems.map((item) => (
+              <div key={item.href} style={{ position: 'relative' }}
+                onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            </div>
+                <Link href={item.href} style={{
+                  display: 'flex', alignItems: 'center', gap: 4,
+                  padding: '0.5rem 0.75rem', borderRadius: 6,
+                  fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none',
+                  color: pathname === item.href ? '#f97316' : '#374151',
+                  borderBottom: pathname === item.href ? '2px solid #f97316' : '2px solid transparent',
+                }}>
+                  {item.label}
+                  {item.children && <ChevronDown size={13} style={{ transform: openDropdown === item.label ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />}
+                </Link>
+                {item.children && openDropdown === item.label && (
+                  <div style={{ position: 'absolute', top: '100%', left: 0, marginTop: 4, width: 220, background: '#fff', borderRadius: 10, border: '1px solid #e5e7eb', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', overflow: 'hidden', zIndex: 100 }}>
+                    {item.children.map((child) => (
+                      <Link key={child.href} href={child.href} style={{ display: 'block', padding: '0.625rem 1rem', fontSize: '0.875rem', color: '#4b5563', textDecoration: 'none' }}
+                        onMouseEnter={e => (e.currentTarget.style.background = '#fff7ed')}
+                        onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                      >{child.label}</Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Right */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            {session ? (
+              <Link href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0.5rem 1rem', borderRadius: 8, background: '#f3f4f6', fontSize: '0.875rem', fontWeight: 600, color: '#374151', textDecoration: 'none' }}>
+                <User size={15} /> Dashboard
+              </Link>
+            ) : (
+              <Link href="/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#f97316', color: '#fff', fontWeight: 700, fontSize: '0.875rem', padding: '0.625rem 1.25rem', borderRadius: 8, textDecoration: 'none' }}>
+                <User size={15} /> Join GEOFERA
+              </Link>
+            )}
+            <button style={{ padding: '0.5rem', borderRadius: 8, border: 'none', background: 'transparent', cursor: 'pointer', color: '#6b7280' }}>
+              <Search size={18} />
+            </button>
+            <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: 'none', padding: '0.5rem', border: 'none', background: 'transparent', cursor: 'pointer' }} className="lg:hidden block">
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="fixed inset-0 z-40 lg:hidden"
-          >
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-            <div className="absolute right-0 top-0 bottom-0 w-72 bg-white dark:bg-navy-900 border-l border-gray-100 dark:border-navy-800 overflow-y-auto">
-              <div className="p-6 pt-20 space-y-1">
-                {navItems.map((item) => (
-                  <div key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`flex items-center px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
-                        isActive(item.href)
-                          ? 'text-crimson-600 bg-crimson-50 dark:bg-crimson-900/20'
-                          : 'text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    {item.children && (
-                      <div className="ml-4 mt-0.5 space-y-0.5">
-                        {item.children.slice(1).map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center px-4 py-2 rounded-lg text-xs text-gray-500 dark:text-gray-400 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <div className="pt-4 border-t border-gray-100 dark:border-navy-700 mt-4 space-y-2">
-                  <Link href="/login" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-navy-600 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-                    <LogIn size={15} /> Login
-                  </Link>
-                  <Link href="/register" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-2 w-full btn-primary">
-                    Join GEOFERA
-                  </Link>
-                </div>
-              </div>
+          <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: '100%' }} transition={{ duration: 0.2 }}
+            style={{ position: 'fixed', inset: 0, zIndex: 40 }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)' }} onClick={() => setMobileOpen(false)} />
+            <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 280, background: '#fff', padding: '5rem 1.5rem 2rem', overflowY: 'auto' }}>
+              {navItems.map(item => (
+                <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)}
+                  style={{ display: 'block', padding: '0.75rem 0', fontSize: '1rem', fontWeight: 500, color: '#111827', textDecoration: 'none', borderBottom: '1px solid #f3f4f6' }}>
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </motion.div>
         )}
