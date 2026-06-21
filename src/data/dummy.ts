@@ -260,18 +260,7 @@ export const testimonials = [
   { id: 'tm4', name: 'Dr. Lucia Tambunan', title: 'Reservoir Geologist, Vico Indonesia', photo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&q=80', text: 'The knowledge center is a goldmine of Indonesian basin-specific case studies and technical papers. It saves hours of searching.', rating: 5 },
 ]
 
-export const partners = [
-  { id: 'p1', name: 'SKK Migas', logo: '/images/partners/skkmigas.svg', tier: 'PLATINUM' },
-  { id: 'p2', name: 'Pertamina', logo: '/images/partners/pertamina.svg', tier: 'PLATINUM' },
-  { id: 'p3', name: 'Schlumberger', logo: '/images/partners/slb.svg', tier: 'GOLD' },
-  { id: 'p4', name: 'Halliburton', logo: '/images/partners/halliburton.svg', tier: 'GOLD' },
-  { id: 'p5', name: 'Baker Hughes', logo: '/images/partners/bakerhughes.svg', tier: 'GOLD' },
-  { id: 'p6', name: 'TotalEnergies', logo: '/images/partners/total.svg', tier: 'SILVER' },
-  { id: 'p7', name: 'Medco Energi', logo: '/images/partners/medco.svg', tier: 'SILVER' },
-  { id: 'p8', name: 'ITB', logo: '/images/partners/itb.svg', tier: 'SUPPORTING' },
-  { id: 'p9', name: 'LEMIGAS', logo: '/images/partners/lemigas.svg', tier: 'SUPPORTING' },
-  { id: 'p10', name: 'IATMI', logo: '/images/partners/iatmi.svg', tier: 'SUPPORTING' },
-]
+export const partners: { id: string; name: string; logo: string; tier: string }[] = []
 
 export const trainingCategoryLabels: Record<string, string> = {
   FORMATION_EVALUATION: 'Formation Evaluation',
