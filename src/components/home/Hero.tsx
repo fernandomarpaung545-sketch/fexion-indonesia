@@ -88,10 +88,12 @@ export function Hero() {
             Connecting{' '}
             <span className="text-gradient-crimson">Geoscience,</span>
             <br />
-            Operations &{' '}
-            <span className="text-gradient-gold">Formation</span>
+            Operations &amp; Formation Evaluation,
             <br />
-            Evaluation, and Drilling Professionals
+            and{' '}
+            <span className="text-gradient-gold">Drilling</span>
+            <br />
+            Professionals
           </motion.h1>
 
           {/* Sub */}
