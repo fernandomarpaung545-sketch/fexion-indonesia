@@ -1,6 +1,5 @@
 'use client'
-// Hero Section — exact match to mockup
-// White left side with text, right side = hero-bg.png (the composite image)
+// Hero Section — clean white background, no hero-bg.png
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Users, BookOpen, Calendar, Linkedin, Facebook, Youtube, Mail } from 'lucide-react'
@@ -8,36 +7,17 @@ import { Users, BookOpen, Calendar, Linkedin, Facebook, Youtube, Mail } from 'lu
 export function Hero() {
   return (
     <section style={{
-      position: 'relative',
-      minHeight: 720,
+      minHeight: 680,
       paddingTop: 64,
       background: '#fff',
-      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
     }}>
-      {/* Right side background image — fills ~58% from right */}
       <div style={{
-        position: 'absolute',
-        top: 0, bottom: 0,
-        left: '38%', right: 0,
+        maxWidth: 1280, margin: '0 auto', padding: '3rem 1.5rem',
+        width: '100%',
       }}>
-        <img src="/hero-bg.png" alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'left center' }} />
-        {/* Gradient fade from white on left edge of image */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.7) 15%, rgba(255,255,255,0.2) 35%, transparent 55%)',
-        }} />
-      </div>
-
-      {/* Content */}
-      <div style={{
-        position: 'relative', zIndex: 2,
-        maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem',
-        display: 'flex', alignItems: 'center',
-        minHeight: 'calc(720px - 64px)',
-        paddingTop: '2.5rem', paddingBottom: '2.5rem',
-      }}>
-        <div style={{ maxWidth: 500 }}>
+        <div style={{ maxWidth: 560 }}>
 
           {/* Eyebrow */}
           <motion.p
@@ -51,7 +31,7 @@ export function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18, duration: 0.55 }}
             style={{ fontWeight: 900, color: '#0A2342', lineHeight: 1.1, marginBottom: '1.125rem',
-              fontSize: 'clamp(1.875rem, 3.2vw, 3rem)' }}>
+              fontSize: 'clamp(2rem, 3.5vw, 3.25rem)' }}>
             Connecting Geoscience,<br />
             Formation Evaluation,<br />
             Drilling &amp; Upstream<br />
@@ -61,8 +41,8 @@ export function Hero() {
           {/* Sub */}
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            style={{ color: '#6B7280', fontSize: '0.9375rem', lineHeight: 1.7,
-              maxWidth: '28rem', marginBottom: '1.875rem' }}>
+            style={{ color: '#6B7280', fontSize: '1rem', lineHeight: 1.7,
+              maxWidth: '30rem', marginBottom: '2rem' }}>
             Advancing technical excellence through knowledge sharing, professional development,
             industry collaboration, and innovation across the energy sector.
           </motion.p>
@@ -70,33 +50,33 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42 }}
-            style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.625rem', marginBottom: '1.625rem' }}>
+            style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem' }}>
             <Link href="/register" style={{
-              display: 'inline-flex', alignItems: 'center', gap: 6,
+              display: 'inline-flex', alignItems: 'center', gap: 7,
               background: '#F97316', color: '#fff', fontWeight: 700,
-              fontSize: '0.875rem', padding: '0.6875rem 1.25rem',
-              borderRadius: 7, textDecoration: 'none',
-              boxShadow: '0 3px 12px rgba(249,115,22,0.38)',
+              fontSize: '0.9375rem', padding: '0.75rem 1.5rem',
+              borderRadius: 8, textDecoration: 'none',
+              boxShadow: '0 4px 14px rgba(249,115,22,0.38)',
             }}>
-              <Users size={15} /> Join GEOFERA
+              <Users size={16} /> Join GEOFERA
             </Link>
             <Link href="/training" style={{
-              display: 'inline-flex', alignItems: 'center', gap: 6,
+              display: 'inline-flex', alignItems: 'center', gap: 7,
               background: '#fff', color: '#374151', fontWeight: 600,
-              fontSize: '0.875rem', padding: '0.6875rem 1.25rem',
-              borderRadius: 7, textDecoration: 'none',
+              fontSize: '0.9375rem', padding: '0.75rem 1.5rem',
+              borderRadius: 8, textDecoration: 'none',
               border: '1.5px solid #D1D5DB',
             }}>
-              <BookOpen size={14} /> Explore Training
+              <BookOpen size={15} /> Explore Training
             </Link>
             <Link href="/events" style={{
-              display: 'inline-flex', alignItems: 'center', gap: 6,
+              display: 'inline-flex', alignItems: 'center', gap: 7,
               background: '#fff', color: '#374151', fontWeight: 600,
-              fontSize: '0.875rem', padding: '0.6875rem 1.25rem',
-              borderRadius: 7, textDecoration: 'none',
+              fontSize: '0.9375rem', padding: '0.75rem 1.5rem',
+              borderRadius: 8, textDecoration: 'none',
               border: '1.5px solid #D1D5DB',
             }}>
-              <Calendar size={14} /> Upcoming Events
+              <Calendar size={15} /> Upcoming Events
             </Link>
           </motion.div>
 
@@ -114,12 +94,12 @@ export function Hero() {
               { Icon: Mail,     href: 'mailto:info@geofera.olinesia.com', color: '#6B7280' },
             ].map(({ Icon, href, color }, i) => (
               <a key={i} href={href} style={{
-                width: 32, height: 32, borderRadius: '50%',
+                width: 34, height: 34, borderRadius: '50%',
                 border: '1.5px solid #E5E7EB',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color, textDecoration: 'none', background: '#fff', flexShrink: 0,
+                color, textDecoration: 'none', background: '#fff',
               }}>
-                <Icon size={14} />
+                <Icon size={15} />
               </a>
             ))}
           </motion.div>
