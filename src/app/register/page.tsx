@@ -31,7 +31,7 @@ export default function RegisterPage() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Registration failed')
-      toast.success(`Welcome to GOFEW, ${form.fullName.split(' ')[0]}!`)
+      toast.success(`Welcome to GEOFERA, ${form.fullName.split(' ')[0]}!`)
       router.push('/login?registered=1')
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Registration failed')
@@ -50,7 +50,7 @@ export default function RegisterPage() {
           <div className="w-16 h-16 rounded-2xl bg-crimson-gradient mx-auto mb-6 flex items-center justify-center shadow-crimson-lg">
             <span className="font-display font-black text-3xl text-white">G</span>
           </div>
-          <h2 className="font-display font-black text-3xl text-white mb-4">Join GOFEW Indonesia</h2>
+          <h2 className="font-display font-black text-3xl text-white mb-4">Join GEOFERA Indonesia</h2>
           <p className="text-white/55 leading-relaxed">
             Connect with 2,847+ formation evaluation, petrophysics, and geoscience professionals across Indonesia.
           </p>
@@ -80,7 +80,7 @@ export default function RegisterPage() {
             <div className="w-8 h-8 rounded-lg bg-crimson-gradient flex items-center justify-center">
               <span className="text-white font-display font-black text-sm">G</span>
             </div>
-            <span className="font-display font-bold text-white">GOFEW Indonesia</span>
+            <span className="font-display font-bold text-white">GEOFERA Indonesia</span>
           </div>
 
           <h1 className="font-display font-bold text-2xl text-white mb-1">Create your account</h1>
@@ -159,7 +159,7 @@ export default function RegisterPage() {
           </form>
 
           <p className="text-center text-xs text-white/25 mt-5">
-            By registering you agree to GOFEW's{' '}
+            By registering you agree to GEOFERA's{' '}
             <Link href="/terms" className="text-white/40 hover:text-white/60 transition-colors">Terms of Service</Link>
             {' '}and{' '}
             <Link href="/privacy" className="text-white/40 hover:text-white/60 transition-colors">Privacy Policy</Link>

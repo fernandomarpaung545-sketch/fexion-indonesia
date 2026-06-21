@@ -19,7 +19,7 @@ export function PartnersSection() {
           <span className="section-eyebrow">Industry Partners</span>
           <h2 className="section-title">Trusted by Industry Leaders</h2>
           <p className="section-subtitle mx-auto text-center">
-            GOFEW partners with operators, service companies, and institutions shaping Indonesia's energy future.
+            GEOFERA partners with operators, service companies, and institutions shaping Indonesia's energy future.
           </p>
         </div>
 

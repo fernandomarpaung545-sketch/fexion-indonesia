@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { Search, Filter, UserPlus, Download, CheckCircle, Clock, XCircle, MoreHorizontal, Shield } from 'lucide-react';
 
 const USERS = [
-  { id: '1', name: 'Dr. Budi Santoso', email: 'budi.santoso@pertamina.com', company: 'Pertamina EP', role: 'Member', status: 'Active', joined: '15 Jan 2022', memberNo: 'GOFEW-00042', verified: true },
-  { id: '2', name: 'Ir. Dewi Rahayu', email: 'dewi.rahayu@medco.com', company: 'Medco E&P', role: 'Member', status: 'Active', joined: '20 Feb 2022', memberNo: 'GOFEW-00078', verified: true },
-  { id: '3', name: 'Ahmad Fauzi', email: 'ahmad.fauzi@slb.com', company: 'Schlumberger', role: 'Member', status: 'Active', joined: '3 May 2023', memberNo: 'GOFEW-00115', verified: false },
-  { id: '4', name: 'Sari Wulandari', email: 'sari.wulandari@chevron.com', company: 'Chevron Pacific', role: 'Moderator', status: 'Active', joined: '11 Jun 2023', memberNo: 'GOFEW-00163', verified: true },
-  { id: '5', name: 'Rizky Pratama', email: 'rizky.pratama@hal.com', company: 'Halliburton', role: 'Member', status: 'Pending', joined: '8 Dec 2023', memberNo: 'GOFEW-00201', verified: false },
-  { id: '6', name: 'Nurul Hidayah', email: 'nurul.hidayah@shell.com', company: 'Shell Indonesia', role: 'Member', status: 'Active', joined: '14 Mar 2024', memberNo: 'GOFEW-00287', verified: false },
-  { id: '7', name: 'Andri Setiawan', email: 'andri.s@phe.com', company: 'Pertamina Hulu Energi', role: 'Member', status: 'Active', joined: '25 Sep 2023', memberNo: 'GOFEW-00199', verified: false },
-  { id: '8', name: 'Test User', email: 'test@example.com', company: 'Unknown', role: 'Member', status: 'Suspended', joined: '1 Jan 2024', memberNo: 'GOFEW-00350', verified: false },
+  { id: '1', name: 'Dr. Budi Santoso', email: 'budi.santoso@pertamina.com', company: 'Pertamina EP', role: 'Member', status: 'Active', joined: '15 Jan 2022', memberNo: 'GEOFERA-00042', verified: true },
+  { id: '2', name: 'Ir. Dewi Rahayu', email: 'dewi.rahayu@medco.com', company: 'Medco E&P', role: 'Member', status: 'Active', joined: '20 Feb 2022', memberNo: 'GEOFERA-00078', verified: true },
+  { id: '3', name: 'Ahmad Fauzi', email: 'ahmad.fauzi@slb.com', company: 'Schlumberger', role: 'Member', status: 'Active', joined: '3 May 2023', memberNo: 'GEOFERA-00115', verified: false },
+  { id: '4', name: 'Sari Wulandari', email: 'sari.wulandari@chevron.com', company: 'Chevron Pacific', role: 'Moderator', status: 'Active', joined: '11 Jun 2023', memberNo: 'GEOFERA-00163', verified: true },
+  { id: '5', name: 'Rizky Pratama', email: 'rizky.pratama@hal.com', company: 'Halliburton', role: 'Member', status: 'Pending', joined: '8 Dec 2023', memberNo: 'GEOFERA-00201', verified: false },
+  { id: '6', name: 'Nurul Hidayah', email: 'nurul.hidayah@shell.com', company: 'Shell Indonesia', role: 'Member', status: 'Active', joined: '14 Mar 2024', memberNo: 'GEOFERA-00287', verified: false },
+  { id: '7', name: 'Andri Setiawan', email: 'andri.s@phe.com', company: 'Pertamina Hulu Energi', role: 'Member', status: 'Active', joined: '25 Sep 2023', memberNo: 'GEOFERA-00199', verified: false },
+  { id: '8', name: 'Test User', email: 'test@example.com', company: 'Unknown', role: 'Member', status: 'Suspended', joined: '1 Jan 2024', memberNo: 'GEOFERA-00350', verified: false },
 ];
 
 const statusConfig = {

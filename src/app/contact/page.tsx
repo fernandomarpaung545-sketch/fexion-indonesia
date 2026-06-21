@@ -30,7 +30,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 hero-grid opacity-30" />
           <div className="container-tight relative text-center max-w-2xl mx-auto">
             <span className="tag-crimson mb-4 inline-flex">Get in Touch</span>
-            <h1 className="font-display font-black text-4xl md:text-5xl text-white mb-4">Contact GOFEW</h1>
+            <h1 className="font-display font-black text-4xl md:text-5xl text-white mb-4">Contact GEOFERA</h1>
             <p className="text-lg text-white/55">
               Questions about membership, training, events, or partnership? We'd love to hear from you.
             </p>
@@ -42,7 +42,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-6">
               {[
-                { icon: Mail, label: 'Email', value: 'info@gofew-indonesia.org', href: 'mailto:info@gofew-indonesia.org' },
+                { icon: Mail, label: 'Email', value: 'info@geofera.olinesia.com', href: 'mailto:info@geofera.olinesia.com' },
                 { icon: Phone, label: 'WhatsApp', value: '+62 812-XXXX-XXXX', href: 'https://wa.me/628120000000' },
                 { icon: MapPin, label: 'Location', value: 'Jakarta, Indonesia', href: undefined },
               ].map(({ icon: Icon, label, value, href }) => (

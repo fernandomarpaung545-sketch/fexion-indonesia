@@ -39,7 +39,7 @@ export function JoinCTA() {
 
           <h2 className="font-display font-black text-4xl md:text-5xl text-white leading-tight mb-5">
             Ready to Join<br />
-            <span className="text-gradient-crimson">GOFEW Indonesia?</span>
+            <span className="text-gradient-crimson">GEOFERA Indonesia?</span>
           </h2>
 
           <p className="text-lg text-white/55 mb-10 leading-relaxed">

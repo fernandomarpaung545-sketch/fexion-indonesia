@@ -12,7 +12,7 @@ const benefits = [
   'Annual conference and monthly webinar series',
   'Exclusive knowledge library with regional basin case studies',
   'Direct connections with operators, service companies, and academia',
-  'Recognition through the GOFEW Technical Excellence Awards',
+  'Recognition through the GEOFERA Technical Excellence Awards',
 ]
 
 export function AboutSection() {
@@ -53,7 +53,7 @@ export function AboutSection() {
                 <div className="w-16 h-16 rounded-2xl bg-crimson-gradient flex items-center justify-center mb-4 shadow-crimson-lg">
                   <span className="font-display font-black text-3xl text-white">G</span>
                 </div>
-                <div className="font-display font-black text-3xl text-white mb-1">GOFEW</div>
+                <div className="font-display font-black text-3xl text-white mb-1">GEOFERA</div>
                 <div className="text-xs text-white/40 uppercase tracking-[0.25em] mb-4">Indonesia</div>
                 <div className="text-sm text-white/60 max-w-xs">
                   Geology Operation & Formation Evaluation Indonesia
@@ -78,12 +78,12 @@ export function AboutSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <span className="section-eyebrow">About GOFEW</span>
+            <span className="section-eyebrow">About GEOFERA</span>
             <h2 className="section-title">
               Indonesia's Home for Subsurface Professionals
             </h2>
             <p className="text-[var(--text-muted)] leading-relaxed mb-6">
-              Founded in 2020, GOFEW Indonesia emerged from the recognition that Formation Evaluation and Wellsite Geology professionals in Indonesia needed a dedicated community — one grounded in local basin knowledge but connected to global best practices.
+              Founded in 2020, GEOFERA Indonesia emerged from the recognition that Formation Evaluation and Wellsite Geology professionals in Indonesia needed a dedicated community — one grounded in local basin knowledge but connected to global best practices.
             </p>
             <p className="text-[var(--text-muted)] leading-relaxed mb-8">
               We are a non-profit professional organization recognized by SKK Migas and affiliated with IATMI, bringing together practitioners from operators, service companies, universities, and government bodies across all 34 provinces.
@@ -106,7 +106,7 @@ export function AboutSection() {
             </ul>
 
             <Link href="/about" className="btn-outline group">
-              Learn More About GOFEW
+              Learn More About GEOFERA
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>

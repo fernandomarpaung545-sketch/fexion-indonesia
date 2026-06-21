@@ -5,7 +5,7 @@ import { Search, Download, CheckCircle, Clock, XCircle, DollarSign, TrendingUp }
 
 const PAYMENTS = [
   { id: 'PAY-2026-0042', user: 'Ahmad Fauzi', email: 'ahmad.fauzi@slb.com', item: 'Advanced Petrophysics Training', type: 'Training', amount: 2750000, date: 'Jun 5, 2026', status: 'Confirmed', method: 'BCA Transfer' },
-  { id: 'PAY-2026-0041', user: 'Sari Wulandari', email: 'sari@chevron.com', item: 'GOFEW Mid-Year Forum 2026', type: 'Event', amount: 500000, date: 'Jun 4, 2026', status: 'Confirmed', method: 'Mandiri Transfer' },
+  { id: 'PAY-2026-0041', user: 'Sari Wulandari', email: 'sari@chevron.com', item: 'GEOFERA Mid-Year Forum 2026', type: 'Event', amount: 500000, date: 'Jun 4, 2026', status: 'Confirmed', method: 'Mandiri Transfer' },
   { id: 'PAY-2026-0040', user: 'Rizky Pratama', email: 'rizky@hal.com', item: 'Formation Evaluation Intensive', type: 'Training', amount: 3500000, date: 'Jun 3, 2026', status: 'Pending', method: 'BNI Transfer' },
   { id: 'PAY-2026-0039', user: 'Dimas Ardiansyah', email: 'dimas@vaalco.com', item: 'Wellsite Geology Workshop', type: 'Training', amount: 1800000, date: 'Jun 2, 2026', status: 'Confirmed', method: 'BCA Transfer' },
   { id: 'PAY-2026-0038', user: 'Fitria Handayani', email: 'fitria@total.com', item: 'Advanced Petrophysics Training', type: 'Training', amount: 2750000, date: 'Jun 1, 2026', status: 'Pending', method: 'BRI Transfer' },

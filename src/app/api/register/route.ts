@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 
     // Generate member number
     const count = await prisma.user.count()
-    const memberNumber = `GOFEW-${String(count + 1).padStart(5, '0')}`
+    const memberNumber = `GEOFERA-${String(count + 1).padStart(5, '0')}`
 
     const user = await prisma.user.create({
       data: {

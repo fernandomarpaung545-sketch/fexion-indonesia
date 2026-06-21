@@ -14,7 +14,7 @@ const statsCards = [
 
 const recentRegistrations = [
   { name: 'Agus Santoso', event: 'Advanced Petrophysical Log Analysis', date: '2 min ago', status: 'PENDING' },
-  { name: 'Ratna Dewi', event: 'GOFEW Annual Conference 2025', date: '15 min ago', status: 'CONFIRMED' },
+  { name: 'Ratna Dewi', event: 'GEOFERA Annual Conference 2025', date: '15 min ago', status: 'CONFIRMED' },
   { name: 'Budi Pratama', event: 'Geosteering in Thin-Bed Reservoirs', date: '1 hr ago', status: 'CONFIRMED' },
   { name: 'Sari Indah', event: 'Formation Evaluation Fundamentals', date: '2 hrs ago', status: 'PENDING' },
   { name: 'Doni Kusuma', event: 'CCS Site Characterization', date: '3 hrs ago', status: 'CONFIRMED' },
@@ -31,7 +31,7 @@ export default function AdminDashboard() {
     <div className="space-y-8">
       <div>
         <h1 className="font-display font-bold text-2xl text-[var(--text-primary)]">Dashboard Overview</h1>
-        <p className="text-[var(--text-muted)] text-sm mt-1">GOFEW Indonesia — Admin Panel</p>
+        <p className="text-[var(--text-muted)] text-sm mt-1">GEOFERA Indonesia — Admin Panel</p>
       </div>
 
       {/* Stats Grid */}

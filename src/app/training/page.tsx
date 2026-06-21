@@ -70,7 +70,7 @@ export default function TrainingPage() {
           <div className="container-tight relative">
             <span className="tag-crimson mb-4 inline-flex">Technical Training</span>
             <h1 className="font-display font-black text-4xl md:text-5xl text-white mb-4">
-              GOFEW Training Programs
+              GEOFERA Training Programs
             </h1>
             <p className="text-lg text-white/55 max-w-2xl">
               Industry-led technical training across eight subsurface disciplines. Delivered by Indonesia's foremost practitioners.

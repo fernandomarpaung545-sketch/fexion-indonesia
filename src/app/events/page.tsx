@@ -20,7 +20,7 @@ export default function EventsPage() {
           <div className="container-tight relative">
             <span className="tag-crimson mb-4 inline-flex">Events</span>
             <h1 className="font-display font-black text-4xl md:text-5xl text-white mb-4">
-              GOFEW Events Calendar
+              GEOFERA Events Calendar
             </h1>
             <p className="text-lg text-white/55 max-w-2xl">
               Conferences, webinars, workshops, and technical sharing sessions — connect, learn, and contribute.

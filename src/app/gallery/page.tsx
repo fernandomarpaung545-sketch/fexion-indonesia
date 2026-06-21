@@ -6,14 +6,14 @@ import { X, Play, Image, Video, Calendar, ZoomIn } from 'lucide-react';
 const CATEGORIES = ['All', 'Conference', 'Workshop', 'Webinar', 'Site Visit', 'Awards'];
 
 const GALLERY_ITEMS = [
-  { id: '1', type: 'photo', category: 'Conference', title: 'GOFEW Annual Symposium 2025', event: 'Annual Symposium', date: 'Nov 2025', span: 'col-span-2 row-span-2', color: 'from-blue-900 to-navy-950' },
+  { id: '1', type: 'photo', category: 'Conference', title: 'GEOFERA Annual Symposium 2025', event: 'Annual Symposium', date: 'Nov 2025', span: 'col-span-2 row-span-2', color: 'from-blue-900 to-navy-950' },
   { id: '2', type: 'photo', category: 'Workshop', title: 'Petrophysics Workshop — Jakarta', event: 'Training Workshop', date: 'Sep 2025', span: 'col-span-1 row-span-1', color: 'from-purple-900 to-navy-950' },
   { id: '3', type: 'video', category: 'Webinar', title: 'Formation Evaluation Webinar Highlights', event: 'Online Webinar', date: 'Aug 2025', span: 'col-span-1 row-span-1', color: 'from-teal-900 to-navy-950' },
   { id: '4', type: 'photo', category: 'Workshop', title: 'Mud Logging Field Workshop — Balikpapan', event: 'Field Workshop', date: 'Jul 2025', span: 'col-span-1 row-span-1', color: 'from-green-900 to-navy-950' },
-  { id: '5', type: 'photo', category: 'Conference', title: 'GOFEW × IATMI Technical Sharing', event: 'Joint Session', date: 'Jun 2025', span: 'col-span-1 row-span-1', color: 'from-crimson-900 to-navy-950' },
+  { id: '5', type: 'photo', category: 'Conference', title: 'GEOFERA × IATMI Technical Sharing', event: 'Joint Session', date: 'Jun 2025', span: 'col-span-1 row-span-1', color: 'from-crimson-900 to-navy-950' },
   { id: '6', type: 'photo', category: 'Site Visit', title: 'Pertamina Well Site Visit — South Sumatra', event: 'Field Study', date: 'May 2025', span: 'col-span-1 row-span-2', color: 'from-orange-900 to-navy-950' },
   { id: '7', type: 'video', category: 'Conference', title: 'Opening Ceremony Highlights Reel', event: 'Annual Symposium', date: 'Nov 2025', span: 'col-span-2 row-span-1', color: 'from-indigo-900 to-navy-950' },
-  { id: '8', type: 'photo', category: 'Awards', title: 'GOFEW Excellence Awards Ceremony', event: 'Awards Night', date: 'Nov 2025', span: 'col-span-1 row-span-1', color: 'from-gold-900 to-navy-950' },
+  { id: '8', type: 'photo', category: 'Awards', title: 'GEOFERA Excellence Awards Ceremony', event: 'Awards Night', date: 'Nov 2025', span: 'col-span-1 row-span-1', color: 'from-gold-900 to-navy-950' },
   { id: '9', type: 'photo', category: 'Workshop', title: 'Geosteering Simulation Workshop', event: 'Technical Workshop', date: 'Apr 2025', span: 'col-span-1 row-span-1', color: 'from-cyan-900 to-navy-950' },
   { id: '10', type: 'photo', category: 'Webinar', title: 'CCS Technology Forum Panel', event: 'Online Forum', date: 'Mar 2025', span: 'col-span-1 row-span-1', color: 'from-emerald-900 to-navy-950' },
   { id: '11', type: 'photo', category: 'Site Visit', title: 'Offshore Platform Technical Visit', event: 'Field Study', date: 'Feb 2025', span: 'col-span-2 row-span-1', color: 'from-sky-900 to-navy-950' },

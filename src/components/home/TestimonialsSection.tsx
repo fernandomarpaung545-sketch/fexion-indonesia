@@ -21,7 +21,7 @@ export function TestimonialsSection() {
             What Our Members Say
           </h2>
           <p className="text-white/50 text-lg max-w-xl mx-auto">
-            GOFEW members are at the forefront of Indonesia's subsurface industry.
+            GEOFERA members are at the forefront of Indonesia's subsurface industry.
           </p>
         </div>
 

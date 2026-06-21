@@ -22,7 +22,7 @@ const THEMES: Record<string, { from: string; to: string; accent: string; icon: s
   geopressure:      { from: '#0A0A1A', to: '#1A1A3A', accent: '#6366F1', icon: '📈', label: 'Geopressure' },
 
   // Default
-  default:          { from: '#040B18', to: '#1A4080', accent: '#E63946', icon: '⚡', label: 'GOFEW' },
+  default:          { from: '#040B18', to: '#1A4080', accent: '#E63946', icon: '⚡', label: 'GEOFERA' },
 };
 
 function getTheme(key: string) {
@@ -95,8 +95,8 @@ export async function GET(req: NextRequest) {
 
   ${text ? `<text x="${w / 2}" y="${h - 24}" font-family="system-ui, sans-serif" font-size="${Math.min(w, h) * 0.03}" fill="white" text-anchor="middle" opacity="0.5">${text}</text>` : ''}
 
-  <!-- GOFEW watermark -->
-  <text x="${w - 12}" y="${h - 10}" font-family="system-ui, sans-serif" font-size="${Math.min(w, h) * 0.025}" font-weight="700" fill="${t.accent}" text-anchor="end" opacity="0.6">GOFEW</text>
+  <!-- GEOFERA watermark -->
+  <text x="${w - 12}" y="${h - 10}" font-family="system-ui, sans-serif" font-size="${Math.min(w, h) * 0.025}" font-weight="700" fill="${t.accent}" text-anchor="end" opacity="0.6">GEOFERA</text>
 </svg>`;
 
   return new NextResponse(svg, {

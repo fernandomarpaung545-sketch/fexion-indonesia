@@ -151,7 +151,7 @@ export default function RegistrationModal({ isOpen, onClose, item }: Registratio
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-navy-300">Account Name</span>
-                      <span className="text-white">GOFEW Indonesia</span>
+                      <span className="text-white">GEOFERA Indonesia</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-navy-300">Total</span>

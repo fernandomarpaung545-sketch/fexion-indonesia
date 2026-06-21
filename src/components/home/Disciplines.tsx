@@ -28,7 +28,7 @@ export function Disciplines() {
           <span className="section-eyebrow">Our Disciplines</span>
           <h2 className="section-title">Eight Technical Pillars</h2>
           <p className="section-subtitle mx-auto text-center">
-            GOFEW Indonesia covers the full spectrum of subsurface disciplines — from wellsite operations to reservoir characterization and energy transition.
+            GEOFERA Indonesia covers the full spectrum of subsurface disciplines — from wellsite operations to reservoir characterization and energy transition.
           </p>
         </div>
 

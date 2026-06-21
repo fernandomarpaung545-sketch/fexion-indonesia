@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { Plus, Search, Calendar, Users, MapPin, Edit3, Trash2, Eye, MoreHorizontal } from 'lucide-react';
 
 const EVENTS = [
-  { id: '1', title: 'GOFEW Mid-Year Technical Forum 2026', type: 'Conference', date: 'Jul 28, 2026', location: 'Jakarta', registered: 142, capacity: 200, status: 'Open', featured: true },
+  { id: '1', title: 'GEOFERA Mid-Year Technical Forum 2026', type: 'Conference', date: 'Jul 28, 2026', location: 'Jakarta', registered: 142, capacity: 200, status: 'Open', featured: true },
   { id: '2', title: 'Advanced Petrophysics Training Workshop', type: 'Workshop', date: 'Jul 14–16, 2026', location: 'Online', registered: 38, capacity: 50, status: 'Open', featured: false },
   { id: '3', title: 'Geosteering & Well Placement Webinar', type: 'Webinar', date: 'Jun 20, 2026', location: 'Online', registered: 67, capacity: 100, status: 'Open', featured: false },
-  { id: '4', title: 'GOFEW Annual Symposium 2025', type: 'Conference', date: 'Nov 14–15, 2025', location: 'Jakarta', registered: 387, capacity: 400, status: 'Completed', featured: false },
+  { id: '4', title: 'GEOFERA Annual Symposium 2025', type: 'Conference', date: 'Nov 14–15, 2025', location: 'Jakarta', registered: 387, capacity: 400, status: 'Completed', featured: false },
   { id: '5', title: 'CCS Technology Forum', type: 'Webinar', date: 'Mar 20, 2025', location: 'Online', registered: 204, capacity: 300, status: 'Completed', featured: false },
 ];
 

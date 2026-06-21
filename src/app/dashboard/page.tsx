@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const UPCOMING = [
   { id: '1', type: 'Training', title: 'Advanced Petrophysics Log Interpretation', date: 'Jul 14–16, 2026', status: 'Confirmed', color: 'text-blue-400', bg: 'bg-blue-500/20' },
-  { id: '2', type: 'Event', title: 'GOFEW Mid-Year Technical Forum 2026', date: 'Jul 28, 2026', status: 'Registered', color: 'text-green-400', bg: 'bg-green-500/20' },
+  { id: '2', type: 'Event', title: 'GEOFERA Mid-Year Technical Forum 2026', date: 'Jul 28, 2026', status: 'Registered', color: 'text-green-400', bg: 'bg-green-500/20' },
 ];
 
 const RECENT_ACTIVITY = [
@@ -36,7 +36,7 @@ export default function DashboardPage() {
             <p className="text-navy-400 text-sm mb-1">Welcome back,</p>
             <h1 className="text-white font-display font-bold text-3xl">Ahmad Fauzi</h1>
             <div className="flex items-center gap-3 mt-2">
-              <span className="tag-gold text-xs">GOFEW-00115</span>
+              <span className="tag-gold text-xs">GEOFERA-00115</span>
               <span className="text-navy-400 text-sm">Formation Evaluation Engineer · Schlumberger</span>
             </div>
           </div>
