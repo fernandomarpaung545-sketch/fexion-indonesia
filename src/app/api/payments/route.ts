@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 
+type PaymentStatus = 'PENDING' | 'WAITING_CONFIRMATION' | 'CONFIRMED' | 'REJECTED' | 'REFUNDED' | 'CANCELLED';
+
+const VALID_STATUSES: PaymentStatus[] = ['PENDING','WAITING_CONFIRMATION','CONFIRMED','REJECTED','REFUNDED','CANCELLED'];
 
 const paymentSchema = z.object({
   userId: z.string(),
@@ -13,11 +16,12 @@ const paymentSchema = z.object({
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const status = searchParams.get('status') as string | null;
+    const statusParam = searchParams.get('status') as PaymentStatus | null;
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
 
-    const where = status ? { status } : {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const where: any = statusParam && VALID_STATUSES.includes(statusParam) ? { status: statusParam } : {};
 
     const [payments, total] = await Promise.all([
       prisma.payment.findMany({
@@ -47,7 +51,8 @@ export async function POST(req: NextRequest) {
         amount: data.amount,
         method: data.method,
         proofImage: data.proofImage,
-        status: 'PENDING',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        status: 'PENDING' as any,
       },
     });
 
@@ -65,13 +70,14 @@ export async function PATCH(req: NextRequest) {
     const body = await req.json();
     const { paymentId, status } = body;
 
-    if (!['CONFIRMED', 'REJECTED'].includes(status)) {
+    if (!VALID_STATUSES.includes(status as PaymentStatus)) {
       return NextResponse.json({ error: 'Invalid status' }, { status: 400 });
     }
 
     const payment = await prisma.payment.update({
       where: { id: paymentId },
-      data: { status: status as string },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      data: { status: status as any },
     });
 
     return NextResponse.json({ payment });
