@@ -62,7 +62,7 @@ export function AboutSection() {
 
               {/* Corner badges */}
               <div className="absolute top-4 right-4 glass-card-dark rounded-xl px-3 py-2 text-center">
-                <div className="font-bold text-xl text-white">2020</div>
+                <div className="font-bold text-xl text-white">2026</div>
                 <div className="text-[10px] text-white/40">Founded</div>
               </div>
               <div className="absolute bottom-4 left-4 glass-card-dark rounded-xl px-3 py-2 text-center">
@@ -80,13 +80,13 @@ export function AboutSection() {
           >
             <span className="section-eyebrow">About GEOFERA</span>
             <h2 className="section-title">
-              Indonesia's Home for Subsurface Professionals
+              Connecting the Community Across the Region
             </h2>
             <p className="text-[var(--text-muted)] leading-relaxed mb-6">
-              Founded in 2020, GEOFERA Indonesia emerged from the recognition that Formation Evaluation and Wellsite Geology professionals in Indonesia needed a dedicated community — one grounded in local basin knowledge but connected to global best practices.
+              Established in 2026, GEOFERA is a professional platform dedicated to advancing subsurface excellence through knowledge sharing, technical collaboration, and professional development. We bring together geoscientists, formation evaluation specialists, wellsite geologists, reservoir professionals, and industry leaders to exchange insights, foster innovation, and build meaningful connections.
             </p>
             <p className="text-[var(--text-muted)] leading-relaxed mb-8">
-              We are a non-profit professional organization recognized by SKK Migas and affiliated with IATMI, bringing together practitioners from operators, service companies, universities, and government bodies across all 34 provinces.
+              By combining regional experience with global best practices, GEOFERA helps professionals and organizations unlock new opportunities and drive sustainable growth in the energy industry.
             </p>
 
             {/* Benefits */}
