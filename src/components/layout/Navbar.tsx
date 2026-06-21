@@ -147,7 +147,7 @@ export function Navbar() {
                   <Link href="/login" className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
                     <LogIn size={14} /> Login
                   </Link>
-                  <Link href="/register" className="btn-primary text-sm px-4 py-2">
+                  <Link href="/register" className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
                     Join GEOFERA
                   </Link>
                 </>
