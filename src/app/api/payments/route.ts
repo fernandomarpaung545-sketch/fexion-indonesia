@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
-import { PaymentStatus } from '@prisma/client';
+
 
 const paymentSchema = z.object({
   userId: z.string(),
@@ -13,7 +13,7 @@ const paymentSchema = z.object({
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const status = searchParams.get('status') as PaymentStatus | null;
+    const status = searchParams.get('status') as string | null;
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
 
@@ -71,7 +71,7 @@ export async function PATCH(req: NextRequest) {
 
     const payment = await prisma.payment.update({
       where: { id: paymentId },
-      data: { status: status as PaymentStatus },
+      data: { status: status as string },
     });
 
     return NextResponse.json({ payment });
