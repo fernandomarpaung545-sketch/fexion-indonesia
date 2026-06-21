@@ -91,7 +91,7 @@ export function Hero() {
             Operations &{' '}
             <span className="text-gradient-gold">Formation</span>
             <br />
-            Evaluation Professionals
+            Evaluation, and Drilling Professionals
           </motion.h1>
 
           {/* Sub */}
