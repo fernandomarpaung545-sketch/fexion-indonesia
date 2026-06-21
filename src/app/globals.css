@@ -2,12 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === GEOFERA DESIGN TOKENS === */
+:root {
+  --navy:   #0A2342;
+  --blue:   #2563EB;
+  --orange: #F97316;
+  --green:  #22C55E;
+  --purple: #7C3AED;
+  --gray-50:  #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-400: #94A3B8;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   background: #fff;
-  color: #111827;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--gray-900);
+  font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  line-height: 1.5;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 4px; }
