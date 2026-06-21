@@ -72,7 +72,7 @@ export function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <img src="/geofera-logo.png" alt="GEOFERA" className="h-10 w-auto object-contain" />
+              <img src="/geofera-logo.png" alt="GEOFERA" className="h-16 w-auto object-contain" />
             </Link>
 
             {/* Desktop Nav */}
