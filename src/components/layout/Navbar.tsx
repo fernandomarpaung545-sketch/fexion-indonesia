@@ -71,14 +71,8 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-crimson-gradient flex items-center justify-center shadow-md">
-                <span className="text-white font-display font-black text-sm">G</span>
-              </div>
-              <div>
-                <div className="font-display font-black text-gray-900 dark:text-white text-base leading-none">GEOFERA</div>
-                <div className="text-[9px] text-gray-400 font-medium tracking-wider">Formation Evaluation Excellence</div>
-              </div>
+            <Link href="/" className="flex items-center group">
+              <img src="/geofera-logo.png" alt="GEOFERA" className="h-10 w-auto object-contain" />
             </Link>
 
             {/* Desktop Nav */}

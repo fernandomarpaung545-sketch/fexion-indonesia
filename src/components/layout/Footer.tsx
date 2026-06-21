@@ -34,14 +34,8 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-5 group">
-              <div className="w-10 h-10 rounded-xl bg-crimson-gradient flex items-center justify-center shadow-crimson">
-                <span className="text-white font-display font-black text-lg">G</span>
-              </div>
-              <div>
-                <div className="font-display font-black text-white text-lg leading-none">GEOFERA</div>
-                <div className="text-[11px] text-white/40 font-medium tracking-wider uppercase mt-1">Indonesia</div>
-              </div>
+            <Link href="/" className="flex items-center mb-5 group">
+              <img src="/geofera-logo.png" alt="GEOFERA" className="h-12 w-auto object-contain brightness-0 invert" />
             </Link>
 
             <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-xs">
