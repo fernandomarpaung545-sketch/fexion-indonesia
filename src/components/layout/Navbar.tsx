@@ -62,17 +62,13 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 dark:bg-navy-950/95 backdrop-blur-xl shadow-sm border-b border-gray-100 dark:border-navy-800'
-          : 'bg-white dark:bg-navy-950 border-b border-gray-100 dark:border-navy-800'
-      }`}>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container-tight">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-[68px]">
 
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <img src="/geofera-logo.png" alt="GEOFERA" className="h-20 w-auto object-contain py-1" />
+              <img src="/geofera-logo.png" alt="GEOFERA" style={{ height: "52px", width: "auto", objectFit: "contain" }} />
             </Link>
 
             {/* Desktop Nav */}
@@ -128,14 +124,9 @@ export function Navbar() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-2">
-              {mounted && (
-                <button
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="p-2 rounded-lg text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-all"
-                >
-                  {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
-                </button>
-              )}
+              <button className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-all">
+                <Search size={17} />
+              </button>
 
               {session ? (
                 <Link href="/dashboard" className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-white/15 transition-all">
@@ -144,7 +135,7 @@ export function Navbar() {
                 </Link>
               ) : (
                 <>
-                  <Link href="/login" className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-all">
+                  <Link href="/login" className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all">
                     <LogIn size={14} /> Login
                   </Link>
                   <Link href="/register" className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
