@@ -1,43 +1,85 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 
 const tiers = [
-  { name: 'Associate', price: 'Free', color: '#22C55E', features: ['Community access', 'Newsletter', 'Public webinars', 'Member directory'] },
-  { name: 'Professional', price: 'USD 99/yr', color: '#2563EB', featured: true, features: ['All Associate benefits', 'Technical library', 'Discounted trainings', 'CPD tracking', 'Chapter access', 'Job board'] },
-  { name: 'Corporate', price: 'USD 499/yr', color: '#0A2342', features: ['All Professional benefits', 'Team seats (5)', 'Custom training', 'Brand visibility', 'Speaking slots', 'Partnership perks'] },
+  {
+    name: 'Associate', price: 'Free', period: '',
+    color: '#22C55E', border: '#bbf7d0', bg: '#f0fdf4',
+    features: ['Community forum access', 'Public webinars', 'Newsletter & updates', 'Member directory'],
+  },
+  {
+    name: 'Professional', price: 'USD 99', period: '/year',
+    color: '#2563EB', border: '#2563EB', bg: '#eff6ff',
+    featured: true,
+    features: ['All Associate benefits', 'Technical library access', 'Discounted training (20%)', 'CPD certificate tracking', 'Chapter & SIG access', 'Exclusive job board'],
+  },
+  {
+    name: 'Corporate', price: 'USD 499', period: '/year',
+    color: '#0A2342', border: '#cbd5e1', bg: '#f8fafc',
+    features: ['All Professional benefits', '5 team seats included', 'Custom in-house training', 'Brand visibility package', 'Speaker slot priority', 'Partnership recognition'],
+  },
 ]
 
 export function MembershipBenefits() {
   return (
-    <section style={{ background: '#fff', padding: '5rem 0' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <p style={{ color: '#F97316', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Membership</p>
-          <h2 style={{ fontWeight: 900, fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', color: '#0A2342', marginBottom: '1rem' }}>Membership Benefits</h2>
-          <p style={{ color: '#6b7280', fontSize: '1rem', maxWidth: '36rem', margin: '0 auto', lineHeight: 1.7 }}>
-            Choose the membership tier that fits your professional journey and unlock exclusive access to GEOFERA's full ecosystem.
+    <section className="bg-white py-20">
+      <div className="container-tight">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold tracking-widest uppercase text-[#F97316] block mb-3">Membership</span>
+          <h2 className="font-display font-black text-[#0A2342] mb-4" style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.5rem)' }}>
+            Membership Benefits
+          </h2>
+          <p className="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
+            Choose the membership tier that fits your professional journey and unlock GEOFERA&apos;s full ecosystem.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem', alignItems: 'start' }}>
+        <div className="grid sm:grid-cols-3 gap-6 items-start">
           {tiers.map((t, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              style={{ borderRadius: 20, padding: '2rem', border: t.featured ? `2px solid ${t.color}` : '1px solid #e5e7eb', background: t.featured ? '#eff6ff' : '#fff', boxShadow: t.featured ? '0 8px 32px rgba(37,99,235,0.12)' : '0 2px 8px rgba(0,0,0,0.04)', position: 'relative' }}>
-              {t.featured && <div style={{ position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)', background: '#2563EB', color: '#fff', fontSize: '0.7rem', fontWeight: 700, padding: '4px 16px', borderRadius: 20 }}>MOST POPULAR</div>}
-              <h3 style={{ fontWeight: 800, fontSize: '1.125rem', color: t.color, marginBottom: '0.5rem' }}>{t.name}</h3>
-              <div style={{ fontWeight: 900, fontSize: '1.75rem', color: '#0A2342', marginBottom: '1.5rem' }}>{t.price}</div>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.75rem', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="rounded-2xl p-7 relative"
+              style={{
+                background: t.featured ? '#fff' : t.bg,
+                border: `${t.featured ? '2px' : '1.5px'} solid ${t.border}`,
+                boxShadow: t.featured ? '0 16px 48px rgba(37,99,235,0.14)' : '0 2px 8px rgba(0,0,0,0.04)',
+              }}
+            >
+              {t.featured && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-xs font-bold text-white px-4 py-1 rounded-full bg-[#2563EB]">
+                  MOST POPULAR
+                </div>
+              )}
+
+              <h3 className="font-display font-black text-lg mb-1" style={{ color: t.color }}>{t.name}</h3>
+              <div className="mb-5">
+                <span className="font-black text-2xl text-[#0A2342]">{t.price}</span>
+                <span className="text-gray-400 text-sm">{t.period}</span>
+              </div>
+
+              <ul className="space-y-2.5 mb-7">
                 {t.features.map((f, j) => (
-                  <li key={j} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.875rem', color: '#374151' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={t.color} strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <li key={j} className="flex items-start gap-2.5 text-sm text-gray-600">
+                    <Check size={14} className="mt-0.5 flex-shrink-0" style={{ color: t.color }}/>
                     {f}
                   </li>
                 ))}
               </ul>
-              <Link href="/register" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, background: t.featured ? t.color : 'transparent', color: t.featured ? '#fff' : t.color, border: `2px solid ${t.color}`, fontWeight: 700, fontSize: '0.9rem', padding: '0.75rem', borderRadius: 10, textDecoration: 'none' }}>
-                Get Started <ArrowRight size={14} />
+
+              <Link href="/register"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90"
+                style={{
+                  background: t.featured ? t.color : 'transparent',
+                  color: t.featured ? '#fff' : t.color,
+                  border: `2px solid ${t.color}`,
+                }}
+              >
+                Get Started <ArrowRight size={14}/>
               </Link>
             </motion.div>
           ))}
