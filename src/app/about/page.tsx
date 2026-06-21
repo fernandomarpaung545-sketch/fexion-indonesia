@@ -23,10 +23,16 @@ export default function AboutPage() {
           <div className="container-tight relative text-center max-w-3xl mx-auto">
             <span className="tag-crimson mb-5 inline-flex">About Us</span>
             <h1 className="font-display font-black text-5xl md:text-6xl text-white mb-5 leading-tight">
-              About GEOFERA Indonesia
+              About GEOFERA
             </h1>
-            <p className="text-xl text-white/55 leading-relaxed">
-              GEOFERA stands for Geology Operation & Formation Evaluation Indonesia. We are Indonesia's premier professional community for Geology, Formation Evaluation, Petrophysics & Subsurface Integration — built by practitioners, for practitioners.
+            <p className="text-xl text-white/70 leading-relaxed mb-4">
+              Connecting the Community Across the Region
+            </p>
+            <p className="text-base text-white/55 leading-relaxed mb-4">
+              Established in 2026, GEOFERA is a professional platform dedicated to advancing subsurface excellence through knowledge sharing, technical collaboration, and professional development. We bring together geoscientists, formation evaluation specialists, wellsite geologists, reservoir professionals, and industry leaders to exchange insights, foster innovation, and build meaningful connections.
+            </p>
+            <p className="text-base text-white/55 leading-relaxed">
+              By combining regional experience with global best practices, GEOFERA helps professionals and organizations unlock new opportunities and drive sustainable growth in the energy industry.
             </p>
           </div>
         </div>
