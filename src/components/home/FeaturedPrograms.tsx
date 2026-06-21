@@ -50,9 +50,9 @@ const programs = [
 
 export function FeaturedPrograms() {
   return (
-    <section className="section-py" style={{ background: 'var(--geo-surface)' }}>
-      <div className="container-geo">
-        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+    <section className="py-14 sm:py-20" style={{ background: 'var(--geo-surface)' }}>
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between mb-8 sm:mb-12 flex-wrap gap-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <span className="eyebrow block mb-3">Learn &amp; Grow</span>
@@ -66,7 +66,7 @@ export function FeaturedPrograms() {
           </Link>
         </div>
 
-        <div className="grid grid-responsive-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((p, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 28 }}

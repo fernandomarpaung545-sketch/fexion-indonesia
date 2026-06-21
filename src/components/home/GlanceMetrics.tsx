@@ -100,11 +100,11 @@ const stats = [
 export function GlanceMetrics() {
   return (
     <section className="bg-white section-py-sm" style={{ borderBottom: '1px solid #f1f5f9' }}>
-      <div className="container-geo">
-        <div className="text-center mb-10">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10">
           <span className="eyebrow">GEOFERA at a Glance</span>
         </div>
-        <div className="grid-responsive-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 24 }}

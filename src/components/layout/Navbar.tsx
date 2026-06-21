@@ -52,7 +52,7 @@ export function Navbar() {
           height: 64,
         }}
       >
-        <div className="container-geo h-full flex items-center justify-between">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">

@@ -53,9 +53,9 @@ const features = [
 
 export function WhyGeofera() {
   return (
-    <section className="section-py" style={{ background: 'var(--geo-surface)' }}>
-      <div className="container-geo">
-        <motion.div className="text-center mb-14"
+    <section className="py-14 sm:py-20" style={{ background: 'var(--geo-surface)' }}>
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8">
+        <motion.div className="text-center mb-10 sm:mb-14"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <span className="eyebrow block mb-4">Why Join Us</span>
@@ -68,7 +68,7 @@ export function WhyGeofera() {
           </p>
         </motion.div>
 
-        <div className="grid-responsive-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 28 }}

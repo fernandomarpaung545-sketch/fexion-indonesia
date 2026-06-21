@@ -37,8 +37,8 @@ const events = [
 export function UpcomingEvents() {
   return (
     <section className="section-py bg-white">
-      <div className="container-geo">
-        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between mb-8 sm:mb-12 flex-wrap gap-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <span className="eyebrow block mb-3">Calendar</span>

@@ -1,426 +1,283 @@
 'use client'
-// GEOFERA Premium Hero 2026
-// Dark navy hero with technical geological SVG illustration
-// Left: text content | Right: composite technical visualization
+// GEOFERA Premium Hero 2026 — Apple/Stripe/Linear quality
+// Dark navy with technical geological SVG visualization
+// Fully mobile-responsive
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Users, BookOpen, Calendar, ArrowRight, Linkedin, Facebook, Youtube, Mail } from 'lucide-react'
 
-/* ══ Geological + FE + Well + Network SVG ══════════════════════════════ */
-function HeroVisualization() {
+/* ══ Premium Technical Visualization ══════════════════════════════════ */
+function TechVisualization() {
   return (
-    <svg
-      viewBox="0 0 600 520"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full"
-      style={{ maxHeight: 520 }}
-    >
+    <svg viewBox="0 0 580 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
-        {/* Layer gradients */}
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0d2b5e" />
-          <stop offset="100%" stopColor="#0a2342" />
+        {/* Layer fills */}
+        <linearGradient id="h-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0d2b5e"/>
+          <stop offset="100%" stopColor="#0a2342"/>
         </linearGradient>
-        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1e3a6e" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#1a3a70" stopOpacity="0.5" />
+        <linearGradient id="h-q" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#93c5fd"/><stop offset="100%" stopColor="#60a5fa"/>
         </linearGradient>
-        <linearGradient id="quat" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#93c5fd" />
-          <stop offset="100%" stopColor="#60a5fa" />
+        <linearGradient id="h-m" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#5b9bd5"/><stop offset="100%" stopColor="#3a7bbf"/>
         </linearGradient>
-        <linearGradient id="mio" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#5b9bd5" />
-          <stop offset="100%" stopColor="#3a7bbf" />
+        <linearGradient id="h-e" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#4a7ab4"/><stop offset="100%" stopColor="#2d5e96"/>
         </linearGradient>
-        <linearGradient id="eoc" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#4a90c4" />
-          <stop offset="100%" stopColor="#2e6ea6" />
+        <linearGradient id="h-res" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f59e0b"/><stop offset="100%" stopColor="#d97706"/>
         </linearGradient>
-        <linearGradient id="res" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#f59e0b" />
-          <stop offset="100%" stopColor="#d97706" />
+        <linearGradient id="h-pre" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#92400e"/><stop offset="100%" stopColor="#6b2d0a"/>
         </linearGradient>
-        <linearGradient id="pre" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#92400e" />
-          <stop offset="100%" stopColor="#78350f" />
+        <linearGradient id="h-bmt" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#57534e"/><stop offset="100%" stopColor="#3d3a36"/>
         </linearGradient>
-        <linearGradient id="bmt" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#57534e" />
-          <stop offset="100%" stopColor="#44403c" />
-        </linearGradient>
-        {/* FE log colors */}
-        <linearGradient id="grGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#22C55E" />
-          <stop offset="100%" stopColor="#16a34a" />
-        </linearGradient>
-        <linearGradient id="resGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#F97316" />
-          <stop offset="100%" stopColor="#ea580c" />
-        </linearGradient>
-        <linearGradient id="nphiGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#2563EB" />
-          <stop offset="100%" stopColor="#1d4ed8" />
-        </linearGradient>
-        <linearGradient id="rhobGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#7C3AED" />
-          <stop offset="100%" stopColor="#6d28d9" />
-        </linearGradient>
-        {/* Glow filter */}
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        <filter id="h-glow">
+          <feGaussianBlur stdDeviation="2.5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
-        <filter id="softGlow">
-          <feGaussianBlur stdDeviation="2" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-        <clipPath id="mainClip">
-          <rect width="600" height="520" rx="20" />
-        </clipPath>
-        <pattern id="resHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(255,200,0,0.25)" strokeWidth="2" />
+        <clipPath id="h-clip"><rect width="580" height="500" rx="16"/></clipPath>
+        <pattern id="h-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(255,200,0,0.2)" strokeWidth="2"/>
+        </pattern>
+        <pattern id="h-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
         </pattern>
       </defs>
 
-      <g clipPath="url(#mainClip)">
-        {/* ── Background ── */}
-        <rect width="600" height="520" fill="url(#sky)" />
+      <g clipPath="url(#h-clip)">
+        {/* BG */}
+        <rect width="580" height="500" fill="url(#h-sky)"/>
+        <rect width="580" height="500" fill="url(#h-grid)"/>
 
-        {/* Subtle grid */}
-        <g stroke="rgba(255,255,255,0.04)" strokeWidth="1">
-          {[0,60,120,180,240,300,360,420,480,540,600].map(x => (
-            <line key={x} x1={x} y1="0" x2={x} y2="520" />
-          ))}
-          {[0,60,120,180,240,300,360,420,480,520].map(y => (
-            <line key={y} x1="0" y1={y} x2="600" y2={y} />
-          ))}
-        </g>
-
-        {/* ── GEOLOGICAL CROSS SECTION (main area) ── */}
-        {/* Offshore water column */}
-        <motion.path
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          d="M0,120 Q100,115 200,118 Q300,121 400,116 Q500,112 600,118 L600,175 Q500,169 400,173 Q300,177 200,173 Q100,169 0,175 Z"
-          fill="url(#water)" opacity="0.7"
-        />
-        {/* Wave lines */}
-        {[125,135,145].map((y, i) => (
-          <motion.path key={i}
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 + i * 0.08 }}
-            d={`M0,${y} Q150,${y - 4} 300,${y} Q450,${y + 4} 600,${y}`}
-            fill="none" stroke="rgba(147,197,253,0.25)" strokeWidth="1.5"
-          />
+        {/* ── GEOLOGICAL CROSS-SECTION ── */}
+        {/* Water */}
+        <motion.path initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.15}}
+          d="M0,105 Q145,98 290,103 Q435,108 580,100 L580,148 Q435,155 290,149 Q145,143 0,150Z"
+          fill="#1e3a6e" opacity="0.65"/>
+        {[110,120,130,140].map((y,i)=>(
+          <path key={i} d={`M0,${y} Q145,${y-4+i} 290,${y} Q435,${y+3-i} 580,${y}`}
+            fill="none" stroke="rgba(147,197,253,0.18)" strokeWidth="1.2"/>
         ))}
 
-        {/* Layer 1 — Quaternary */}
-        <motion.path
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}
-          d="M0,175 Q100,169 200,173 Q300,177 400,172 Q500,167 600,172 L600,215 Q500,209 400,213 Q300,218 200,213 Q100,208 0,215 Z"
-          fill="url(#quat)" opacity="0.88"
-        />
-        {/* Layer 2 — Miocene */}
-        <motion.path
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.6 }}
-          d="M0,215 Q100,208 200,213 Q300,218 400,212 Q500,206 600,212 L600,265 Q500,258 400,263 Q300,269 200,263 Q100,257 0,265 Z"
-          fill="url(#mio)" opacity="0.85"
-        />
-        {/* Layer 3 — Eocene */}
-        <motion.path
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.54, duration: 0.6 }}
-          d="M0,265 Q100,257 200,263 Q300,269 400,262 Q500,255 600,262 L600,315 Q500,307 400,312 Q300,318 200,312 Q100,306 0,315 Z"
-          fill="url(#eoc)" opacity="0.82"
-        />
-        {/* Layer 4 — RESERVOIR ★ */}
-        <motion.path
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.66, duration: 0.6 }}
-          d="M0,315 Q100,306 200,312 Q300,318 400,310 Q500,302 600,310 L600,370 Q500,362 400,367 Q300,374 200,367 Q100,361 0,370 Z"
-          fill="url(#res)" opacity="0.92"
-        />
-        {/* Reservoir hatch overlay */}
-        <motion.path
-          initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} transition={{ delay: 1.0 }}
-          d="M0,315 Q100,306 200,312 Q300,318 400,310 Q500,302 600,310 L600,370 Q500,362 400,367 Q300,374 200,367 Q100,361 0,370 Z"
-          fill="url(#resHatch)"
-        />
-        {/* Layer 5 — Pre-Tertiary */}
-        <motion.path
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.5 }}
-          d="M0,370 Q100,361 200,367 Q300,374 400,365 Q500,357 600,365 L600,420 Q500,412 400,417 Q300,422 200,417 Q100,412 0,420 Z"
-          fill="url(#pre)" opacity="0.78"
-        />
-        {/* Layer 6 — Basement */}
-        <motion.path
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.88 }}
-          d="M0,420 Q100,412 200,417 Q300,422 400,415 Q500,408 600,415 L600,520 L0,520 Z"
-          fill="url(#bmt)" opacity="0.7"
-        />
+        {/* Quaternary */}
+        <motion.path initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.25,duration:0.5}}
+          d="M0,150 Q145,143 290,149 Q435,155 580,148 L580,192 Q435,198 290,192 Q145,186 0,192Z"
+          fill="url(#h-q)" opacity="0.88"/>
+        {/* Miocene */}
+        <motion.path initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.37,duration:0.5}}
+          d="M0,192 Q145,186 290,192 Q435,198 580,192 L580,242 Q435,248 290,241 Q145,234 0,242Z"
+          fill="url(#h-m)" opacity="0.85"/>
+        {/* Eocene */}
+        <motion.path initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.49,duration:0.5}}
+          d="M0,242 Q145,234 290,241 Q435,248 580,242 L580,294 Q435,300 290,292 Q145,284 0,294Z"
+          fill="url(#h-e)" opacity="0.82"/>
+        {/* RESERVOIR ★ */}
+        <motion.path initial={{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{delay:0.61,duration:0.5}}
+          d="M0,294 Q145,284 290,292 Q435,300 580,294 L580,350 Q435,357 290,349 Q145,341 0,350Z"
+          fill="url(#h-res)" opacity="0.92"/>
+        <motion.path initial={{opacity:0}} animate={{opacity:0.55}} transition={{delay:0.9}}
+          d="M0,294 Q145,284 290,292 Q435,300 580,294 L580,350 Q435,357 290,349 Q145,341 0,350Z"
+          fill="url(#h-hatch)"/>
+        {/* Pre-Tertiary */}
+        <motion.path initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.73,duration:0.5}}
+          d="M0,350 Q145,341 290,349 Q435,357 580,350 L580,408 Q435,414 290,406 Q145,398 0,408Z"
+          fill="url(#h-pre)" opacity="0.78"/>
+        {/* Basement */}
+        <motion.path initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.82}}
+          d="M0,408 Q145,398 290,406 Q435,414 580,408 L580,500 L0,500Z"
+          fill="url(#h-bmt)" opacity="0.7"/>
 
-        {/* ── LAYER LABELS ── */}
+        {/* Layer labels */}
         {[
-          { y: 198, label: 'QUATERNARY',  color: 'rgba(147,197,253,0.9)' },
-          { y: 244, label: 'MIOCENE',     color: 'rgba(91,155,213,0.9)' },
-          { y: 294, label: 'EOCENE',      color: 'rgba(74,144,196,0.9)' },
-          { y: 346, label: 'RESERVOIR ★', color: 'rgba(251,191,36,1.0)' },
-          { y: 397, label: 'PRE-TERTIARY',color: 'rgba(180,130,60,0.9)' },
-          { y: 460, label: 'BASEMENT',    color: 'rgba(180,170,160,0.8)' },
-        ].map((l, i) => (
-          <motion.text key={i} x="12" y={l.y}
-            fontSize="8.5" fill={l.color}
-            fontFamily="ui-monospace,monospace" fontWeight="700" letterSpacing="0.8"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 + i * 0.08 }}
-          >
-            {l.label}
+          {y:173,t:'QUATERNARY',c:'rgba(147,197,253,0.85)'},
+          {y:219,t:'MIOCENE',c:'rgba(91,155,213,0.85)'},
+          {y:270,t:'EOCENE',c:'rgba(74,122,180,0.85)'},
+          {y:324,t:'★ RESERVOIR',c:'rgba(251,191,36,1)'},
+          {y:382,t:'PRE-TERTIARY',c:'rgba(180,130,60,0.85)'},
+          {y:440,t:'BASEMENT',c:'rgba(180,170,155,0.75)'},
+        ].map((l,i)=>(
+          <motion.text key={i} x="10" y={l.y} fontSize="8" fill={l.c}
+            fontFamily="ui-monospace,monospace" fontWeight="700" letterSpacing="0.7"
+            initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.4+i*0.07}}>
+            {l.t}
           </motion.text>
         ))}
 
-        {/* ── DEPTH SCALE ── */}
-        <g opacity="0.5">
-          {[0, 500, 1000, 1500, 2000, 2500].map((d, i) => (
-            <g key={d}>
-              <line x1="165" y1={175 + i * 57} x2="172" y2={175 + i * 57}
-                stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
-              <text x="163" y={179 + i * 57} fontSize="7.5"
-                fill="rgba(255,255,255,0.5)" textAnchor="end"
-                fontFamily="ui-monospace,monospace">
-                {d}m
-              </text>
-            </g>
-          ))}
-          <text x="163" y="170" fontSize="7" fill="rgba(255,255,255,0.4)"
-            textAnchor="end" fontFamily="ui-monospace,monospace">TVDss</text>
-        </g>
+        {/* Depth scale */}
+        {[0,500,1000,1500,2000,2500,3000].map((d,i)=>(
+          <g key={d} opacity="0.45">
+            <line x1="160" y1={148+i*51.3} x2="168" y2={148+i*51.3}
+              stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
+            <text x="158" y={152+i*51.3} fontSize="7" fill="rgba(255,255,255,0.5)"
+              textAnchor="end" fontFamily="ui-monospace,monospace">{d}m</text>
+          </g>
+        ))}
+        <text x="158" y="143" fontSize="7" fill="rgba(255,255,255,0.35)"
+          textAnchor="end" fontFamily="ui-monospace,monospace">TVDss</text>
 
         {/* ── WELL TRAJECTORY ── */}
-        {/* Wellhead platform */}
-        <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
-          {/* Platform legs */}
-          <line x1="290" y1="80" x2="270" y2="120" stroke="#94a3b8" strokeWidth="2.5" />
-          <line x1="310" y1="80" x2="330" y2="120" stroke="#94a3b8" strokeWidth="2.5" />
-          <rect x="265" y="70" width="70" height="12" rx="3" fill="#1e40af" stroke="#3b82f6" strokeWidth="1" />
+        {/* Platform */}
+        <motion.g initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.0}}>
+          <rect x="253" y="60" width="74" height="10" rx="2" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="1"/>
+          <line x1="258" y1="70" x2="246" y2="105" stroke="#94a3b8" strokeWidth="2"/>
+          <line x1="320" y1="70" x2="332" y2="105" stroke="#94a3b8" strokeWidth="2"/>
           {/* Derrick */}
-          <line x1="300" y1="70" x2="300" y2="30" stroke="#60a5fa" strokeWidth="2" />
-          <line x1="285" y1="70" x2="300" y2="30" stroke="#60a5fa" strokeWidth="1.5" />
-          <line x1="315" y1="70" x2="300" y2="30" stroke="#60a5fa" strokeWidth="1.5" />
-          {/* Cross pieces */}
-          {[42, 54, 62].map(y => (
-            <line key={y} x1={300 - (70 - y)} y1={y} x2={300 + (70 - y)} y2={y}
-              stroke="#60a5fa" strokeWidth="1" opacity="0.6" />
+          <line x1="290" y1="60" x2="290" y2="22" stroke="#60a5fa" strokeWidth="1.8"/>
+          <line x1="278" y1="60" x2="290" y2="22" stroke="#60a5fa" strokeWidth="1.4"/>
+          <line x1="302" y1="60" x2="290" y2="22" stroke="#60a5fa" strokeWidth="1.4"/>
+          {[32,44,54].map(y=>(
+            <line key={y} x1={290-(60-y)*0.85} y1={y} x2={290+(60-y)*0.85} y2={y}
+              stroke="#60a5fa" strokeWidth="1" opacity="0.6"/>
           ))}
         </motion.g>
 
-        {/* Vertical well bore */}
+        {/* Well bore (vertical then deviated) */}
         <motion.path
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1.6, ease: 'easeInOut' }}
-          d="M300,120 L300,290 Q300,310 315,325 Q330,340 355,348 L430,355"
-          fill="none" stroke="#F97316" strokeWidth="3"
-          style={{ strokeDasharray: '1000', strokeDashoffset: '1000' }}
-          filter="url(#softGlow)"
+          initial={{pathLength:0,opacity:0}}
+          animate={{pathLength:1,opacity:1}}
+          transition={{delay:1.15,duration:1.8,ease:'easeInOut'}}
+          d="M290,105 L290,275 Q290,298 308,314 Q326,330 350,338 L420,345"
+          fill="none" stroke="#F97316" strokeWidth="2.8"
+          filter="url(#h-glow)"
         />
-
         {/* Casing shoes */}
-        <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
-          {[{ x: 300, y: 175, r: 5 }, { x: 300, y: 250, r: 4 }].map((c, i) => (
+        <motion.g initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.8}}>
+          {[{x:290,y:150,r:4.5},{x:290,y:230,r:3.5}].map((c,i)=>(
             <g key={i}>
-              <circle cx={c.x} cy={c.y} r={c.r + 2} fill="none" stroke="#F97316" strokeWidth="1.5" opacity="0.4" />
-              <circle cx={c.x} cy={c.y} r={c.r} fill="#F97316" opacity="0.8" />
+              <circle cx={c.x} cy={c.y} r={c.r+2.5} fill="none" stroke="#F97316" strokeWidth="1.2" opacity="0.4"/>
+              <circle cx={c.x} cy={c.y} r={c.r} fill="#F97316" opacity="0.85"/>
             </g>
           ))}
         </motion.g>
-
-        {/* Perforation markers in reservoir */}
-        <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
-          {[338, 348, 358, 368].map((y, i) => {
-            const xBase = 315 + (y - 290) * 0.43
-            return (
+        {/* Perforations */}
+        <motion.g initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.1}}>
+          {[0,1,2,3].map(i=>{
+            const x=320+i*1.8, y=318+i*8
+            return(
               <g key={i}>
-                <line x1={xBase} y1={y} x2={xBase + 18} y2={y - 2}
-                  stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round" />
-                <circle cx={xBase + 18} cy={y - 2} r="2" fill="#fbbf24" />
+                <line x1={x} y1={y} x2={x+18} y2={y-2}
+                  stroke="#fbbf24" strokeWidth="2.2" strokeLinecap="round"/>
+                <circle cx={x+18} cy={y-2} r="2" fill="#fbbf24"/>
               </g>
             )
           })}
-          {/* Perfs label */}
-          <text x="340" y="395" fontSize="7" fill="rgba(251,191,36,0.8)"
+          <text x="342" y="365" fontSize="7" fill="rgba(251,191,36,0.7)"
             fontFamily="ui-monospace,monospace" fontWeight="700">PERFS</text>
         </motion.g>
 
         {/* ── FE LOG PANEL ── */}
-        <rect x="432" y="150" width="155" height="320" fill="rgba(0,0,0,0.35)" rx="8" />
-        <rect x="432" y="150" width="155" height="320" fill="none"
-          stroke="rgba(255,255,255,0.08)" strokeWidth="1" rx="8" />
+        <rect x="415" y="130" width="154" height="340" rx="8"
+          fill="rgba(0,0,0,0.38)" stroke="rgba(255,255,255,0.07)" strokeWidth="1"/>
 
-        {/* Log track headers */}
         {[
-          { x: 440, color: '#22C55E', label: 'GR' },
-          { x: 477, color: '#F97316', label: 'RES' },
-          { x: 514, color: '#2563EB', label: 'NPHI' },
-          { x: 551, color: '#7C3AED', label: 'RHOB' },
-        ].map((t, i) => (
+          {x:422,c:'#22C55E',l:'GR',
+            d:'M437,140 L430,162 L442,184 L428,208 L440,232 L426,256 L440,280 L428,304 L442,328 L428,352 L440,376 L428,400 L437,420 L437,465'},
+          {x:459,c:'#F97316',l:'RES',
+            d:'M474,140 L483,164 L470,188 L484,212 L471,236 L485,260 L472,284 L486,308 L470,332 L485,356 L470,380 L484,404 L474,420 L474,465'},
+          {x:496,c:'#2563EB',l:'NPHI',
+            d:'M511,140 L506,166 L515,192 L504,218 L514,244 L503,270 L514,296 L504,322 L515,348 L504,374 L514,400 L504,426 L511,465'},
+          {x:533,c:'#7C3AED',l:'RHOB',
+            d:'M548,140 L556,168 L543,196 L558,224 L543,252 L558,280 L543,308 L557,336 L542,364 L556,392 L542,420 L548,465'},
+        ].map((tr,i)=>(
           <g key={i}>
-            <rect x={t.x} y="152" width="30" height="316" fill="rgba(255,255,255,0.02)" rx="4" />
-            <text x={t.x + 15} y="164" fontSize="6.5" fill={t.color}
-              textAnchor="middle" fontFamily="ui-monospace,monospace" fontWeight="800">
-              {t.label}
-            </text>
-            {/* Track divider */}
-            <line x1={t.x + 30} y1="155" x2={t.x + 30} y2="465"
-              stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <rect x={tr.x} y="132" width="30" height="333" rx="4" fill="rgba(255,255,255,0.02)"/>
+            <text x={tr.x+15} y="145" fontSize="6.5" fill={tr.c} textAnchor="middle"
+              fontFamily="ui-monospace,monospace" fontWeight="800">{tr.l}</text>
+            <line x1={tr.x+30} y1="134" x2={tr.x+30} y2="462"
+              stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+            <motion.path
+              initial={{pathLength:0,opacity:0}}
+              animate={{pathLength:1,opacity:0.92}}
+              transition={{delay:0.85+i*0.15,duration:2.0}}
+              d={tr.d} fill="none" stroke={tr.c} strokeWidth="1.7"/>
+            {/* Reservoir highlight per track */}
+            <motion.rect x={tr.x+1} y="294" width="28" height="56"
+              fill={tr.c} fillOpacity={0.07}
+              initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.9}}/>
           </g>
         ))}
 
-        {/* GR curve */}
-        <motion.path
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ delay: 0.9, duration: 2.0 }}
-          d="M455,168 L448,190 L460,212 L445,236 L455,258 L442,282 L458,306 L446,330 L462,352 L448,376 L458,400 L444,424 L456,448 L455,465"
-          fill="none" stroke="#22C55E" strokeWidth="1.8"
-        />
-        {/* GR fill */}
-        <motion.path
-          initial={{ opacity: 0 }} animate={{ opacity: 0.15 }} transition={{ delay: 1.5 }}
-          d="M455,168 L448,190 L460,212 L445,236 L455,258 L442,282 L458,306 L446,330 L462,352 L448,376 L458,400 L444,424 L456,448 L455,465 L470,465 L470,168 Z"
-          fill="#22C55E"
-        />
-
-        {/* RES curve */}
-        <motion.path
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ delay: 1.0, duration: 2.0 }}
-          d="M492,168 L500,195 L488,220 L502,245 L490,270 L505,295 L492,318 L506,340 L490,365 L505,388 L490,410 L504,432 L490,455 L492,465"
-          fill="none" stroke="#F97316" strokeWidth="1.8"
-        />
-
-        {/* NPHI curve */}
-        <motion.path
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ delay: 1.1, duration: 2.0 }}
-          d="M528,168 L524,192 L532,218 L522,244 L530,268 L518,294 L528,318 L520,342 L530,368 L520,390 L532,414 L522,438 L528,465"
-          fill="none" stroke="#2563EB" strokeWidth="1.8"
-        />
-
-        {/* RHOB curve */}
-        <motion.path
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ delay: 1.2, duration: 2.0 }}
-          d="M565,168 L572,196 L560,222 L574,248 L562,274 L576,300 L564,324 L578,348 L562,374 L574,396 L560,418 L575,442 L562,465"
-          fill="none" stroke="#7C3AED" strokeWidth="1.8"
-        />
-
-        {/* Reservoir highlight on FE panel */}
-        <motion.rect
-          x="434" y="315" width="151" height="55"
-          fill="rgba(251,191,36,0.08)"
-          stroke="rgba(251,191,36,0.3)" strokeWidth="1" rx="4"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}
-        />
-        <motion.text x="511" y="310" fontSize="6" fill="rgba(251,191,36,0.8)"
+        {/* Pay zone label on log panel */}
+        <motion.text x="492" y="289" fontSize="6" fill="rgba(251,191,36,0.75)"
           textAnchor="middle" fontFamily="ui-monospace,monospace" fontWeight="700"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.0 }}>
+          initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.0}}>
           PAY ZONE
         </motion.text>
+        <motion.rect x="416" y="294" width="152" height="56" rx="3"
+          fill="none" stroke="rgba(251,191,36,0.3)" strokeWidth="1"
+          initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.9}}/>
 
         {/* ── REGIONAL NETWORK (top-left) ── */}
-        {/* SEA outline (simplified) */}
-        <motion.g
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <ellipse cx="90" cy="65" rx="80" ry="55"
-            fill="none" stroke="rgba(37,99,235,0.25)" strokeWidth="1" strokeDasharray="3 2" />
-
-          {/* Country blobs */}
+        <motion.g initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3,duration:0.8}}>
+          <ellipse cx="82" cy="58" rx="72" ry="48"
+            fill="none" stroke="rgba(37,99,235,0.22)" strokeWidth="1" strokeDasharray="3 2"/>
           {[
-            { d: "M55,45 L65,40 L75,44 L78,55 L70,62 L58,60 L52,52 Z", fill: "rgba(37,99,235,0.4)" },
-            { d: "M80,58 L92,54 L100,58 L102,68 L94,74 L83,70 Z", fill: "rgba(37,99,235,0.35)" },
-            { d: "M48,65 L60,62 L65,70 L62,80 L52,82 L44,74 Z", fill: "rgba(34,197,94,0.4)" },
-            { d: "M100,42 L110,38 L118,44 L116,54 L106,56 L98,50 Z", fill: "rgba(34,197,94,0.35)" },
-            { d: "M120,55 L130,52 L136,60 L132,70 L122,68 Z", fill: "rgba(37,99,235,0.3)" },
-          ].map((s, i) => (
-            <path key={i} d={s.d} fill={s.fill} stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+            {d:"M50,38 L62,32 L74,38 L76,50 L65,57 L52,53Z",f:"rgba(37,99,235,0.4)"},
+            {d:"M78,50 L92,46 L101,52 L99,64 L87,68 L77,61Z",f:"rgba(37,99,235,0.35)"},
+            {d:"M42,58 L55,55 L60,64 L56,76 L44,77 L37,68Z",f:"rgba(34,197,94,0.38)"},
+            {d:"M100,36 L112,32 L120,40 L117,52 L105,53 L97,44Z",f:"rgba(34,197,94,0.33)"},
+            {d:"M115,52 L126,50 L132,58 L128,68 L116,66Z",f:"rgba(37,99,235,0.28)"},
+          ].map((s,i)=>(
+            <path key={i} d={s.d} fill={s.f} stroke="rgba(255,255,255,0.12)" strokeWidth="0.8"/>
           ))}
-
-          {/* Network nodes */}
           {[
-            { cx: 62, cy: 52, c: '#22C55E' }, { cx: 90, cy: 62, c: '#F97316' },
-            { cx: 55, cy: 72, c: '#2563EB' }, { cx: 108, cy: 46, c: '#22C55E' },
-            { cx: 126, cy: 60, c: '#7C3AED' }, { cx: 75, cy: 85, c: '#F97316' },
-          ].map((n, i) => (
+            {cx:58,cy:45,c:'#22C55E'},{cx:88,cy:56,c:'#F97316'},
+            {cx:48,cy:66,c:'#2563EB'},{cx:107,cy:42,c:'#22C55E'},
+            {cx:121,cy:57,c:'#7C3AED'},{cx:70,cy:80,c:'#F97316'},
+          ].map((n,i)=>(
             <motion.g key={i}
-              initial={{ scale: 0 }} animate={{ scale: 1 }}
-              transition={{ delay: 0.8 + i * 0.1, type: 'spring' }}
-            >
-              <circle cx={n.cx} cy={n.cy} r={5} fill={n.c} opacity={0.9} filter="url(#softGlow)" />
-              <circle cx={n.cx} cy={n.cy} r={8} fill={n.c} opacity={0.2} />
+              initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}}
+              transition={{delay:0.7+i*0.1,type:'spring'}}>
+              <circle cx={n.cx} cy={n.cy} r={7} fill={n.c} opacity={0.18}/>
+              <circle cx={n.cx} cy={n.cy} r={4.5} fill={n.c} opacity={0.92}/>
             </motion.g>
           ))}
-
-          {/* Connection lines */}
-          <motion.g initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 1.4 }}>
-            <line x1="62" y1="52"  x2="90" y2="62"  stroke="#22C55E" strokeWidth="1.2" />
-            <line x1="90" y1="62"  x2="55" y2="72"  stroke="#F97316" strokeWidth="1.2" />
-            <line x1="90" y1="62"  x2="108" y2="46" stroke="#22C55E" strokeWidth="1.2" />
-            <line x1="108" y1="46" x2="126" y2="60" stroke="#F97316" strokeWidth="1.2" />
-            <line x1="90" y1="62"  x2="75" y2="85"  stroke="#2563EB" strokeWidth="1.2" />
+          <motion.g initial={{opacity:0}} animate={{opacity:0.45}} transition={{delay:1.3}}>
+            {[[58,45,88,56],[88,56,48,66],[88,56,107,42],[107,42,121,57],[88,56,70,80]].map(([x1,y1,x2,y2],i)=>(
+              <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+                stroke="#F97316" strokeWidth="1.1" strokeDasharray="2 2"/>
+            ))}
           </motion.g>
-
-          <text x="90" y="108" fontSize="8" fill="rgba(255,255,255,0.45)"
-            textAnchor="middle" fontFamily="system-ui" fontWeight="600" letterSpacing="0.5">
+          <text x="82" y="100" fontSize="7.5" fill="rgba(255,255,255,0.38)"
+            textAnchor="middle" fontFamily="system-ui" fontWeight="600" letterSpacing="0.4">
             REGIONAL NETWORK
           </text>
         </motion.g>
 
-        {/* ── FLOATING DATA BADGES ── */}
-        {/* Members badge */}
-        <motion.g initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.0 }}>
-          <rect x="12" y="130" width="145" height="36" rx="8"
-            fill="rgba(10,35,66,0.85)" stroke="rgba(34,197,94,0.5)" strokeWidth="1"
-            style={{ backdropFilter: 'blur(12px)' }} />
-          <circle cx="30" cy="148" r="7" fill="rgba(34,197,94,0.2)" />
-          <circle cx="30" cy="148" r="4" fill="#22C55E" />
-          <text x="42" y="144" fontSize="9.5" fill="#fff" fontWeight="800"
-            fontFamily="system-ui">3,000+</text>
-          <text x="42" y="155" fontSize="7.5" fill="rgba(255,255,255,0.55)"
-            fontFamily="system-ui">Members · 15+ Countries</text>
+        {/* ── FLOATING BADGES ── */}
+        <motion.g initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} transition={{delay:1.9}}>
+          <rect x="10" y="108" width="148" height="32" rx="7"
+            fill="rgba(10,35,66,0.88)" stroke="rgba(34,197,94,0.45)" strokeWidth="1"/>
+          <circle cx="27" cy="124" r="6" fill="rgba(34,197,94,0.2)"/>
+          <circle cx="27" cy="124" r="3.5" fill="#22C55E"/>
+          <text x="38" y="120" fontSize="9" fill="#fff" fontWeight="800" fontFamily="system-ui">3,000+</text>
+          <text x="38" y="131" fontSize="7" fill="rgba(255,255,255,0.5)" fontFamily="system-ui">Members · 15+ Countries</text>
         </motion.g>
 
-        {/* Well active badge */}
-        <motion.g initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2.3, type: 'spring' }}>
-          <rect x="352" y="380" width="74" height="26" rx="7"
-            fill="rgba(10,35,66,0.9)" stroke="rgba(249,115,22,0.5)" strokeWidth="1" />
-          <circle cx="364" cy="393" r="4" fill="#F97316">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+        <motion.g initial={{opacity:0,scale:0.8}} animate={{opacity:1,scale:1}}
+          transition={{delay:2.2,type:'spring'}}>
+          <rect x="342" y="365" width="68" height="24" rx="6"
+            fill="rgba(10,35,66,0.92)" stroke="rgba(249,115,22,0.5)" strokeWidth="1"/>
+          <circle cx="353" cy="377" r="3.5" fill="#F97316">
+            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
           </circle>
-          <text x="373" y="397" fontSize="7.5" fill="#fff" fontWeight="700"
-            fontFamily="system-ui">LIVE WELL</text>
+          <text x="361" y="381" fontSize="7" fill="#fff" fontWeight="700" fontFamily="system-ui">LIVE WELL</text>
         </motion.g>
 
-        {/* ── TOP GRADIENT ── */}
+        {/* Top vignette */}
         <defs>
-          <linearGradient id="topMask" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0A2342" stopOpacity="0.4" />
-            <stop offset="15%" stopColor="transparent" />
+          <linearGradient id="h-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#0A2342" stopOpacity="0.5"/>
+            <stop offset="18%" stopColor="transparent"/>
           </linearGradient>
         </defs>
-        <rect width="600" height="520" fill="url(#topMask)" />
+        <rect width="580" height="500" fill="url(#h-top)"/>
       </g>
     </svg>
-  )
-}
-
-/* ══ Counter component ════════════════════════════════════════════════ */
-function LiveCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  return (
-    <span className="tabular-nums">
-      {target.toLocaleString()}{suffix}
-    </span>
   )
 }
 
@@ -434,124 +291,112 @@ export function Hero() {
   ]
 
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{ background: 'var(--geo-navy)', minHeight: 760, paddingTop: 64 }}
-    >
-      {/* Subtle mesh grid */}
-      <div className="absolute inset-0 opacity-30 bg-grid-pattern pointer-events-none" />
+    <section className="relative overflow-hidden"
+      style={{ background: '#0A2342', minHeight: 760, paddingTop: 64 }}>
+      {/* Dot grid */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px,transparent 1px)', backgroundSize: '32px 32px' }}/>
+      {/* Glow orb */}
+      <div className="absolute pointer-events-none"
+        style={{ top: '30%', right: '25%', width: 480, height: 480, borderRadius: '50%',
+          background: 'radial-gradient(circle,rgba(249,115,22,0.07) 0%,transparent 70%)', transform: 'translate(50%,-50%)' }}/>
 
-      {/* Orange glow */}
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle,rgba(249,115,22,0.08) 0%,transparent 70%)' }} />
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10 flex items-center"
+        style={{ minHeight: 696, paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-center w-full">
 
-      <div className="container-geo relative z-10 flex items-center"
-        style={{ minHeight: 696, paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center w-full">
-
-          {/* ── LEFT: Content ── */}
+          {/* ── LEFT ── */}
           <div className="order-2 lg:order-1">
-
             {/* Eyebrow */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-              className="eyebrow mb-5"
-            >
+              initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{duration:0.4,delay:0.1}}
+              className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+              style={{ background:'rgba(249,115,22,0.12)', color:'#F97316', border:'1px solid rgba(249,115,22,0.25)' }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" style={{ animation:'pulse 2s infinite' }}/>
               Regional Professional Community
             </motion.div>
 
-            {/* Main headline */}
+            {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.2 }}
-              className="font-display font-black text-white mb-5 leading-[1.07]"
-              style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}
-            >
+              initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} transition={{duration:0.55,delay:0.18}}
+              className="font-black text-white leading-[1.07] mb-5"
+              style={{ fontSize:'clamp(1.875rem,4vw,3.375rem)' }}>
               Connecting{' '}
-              <span style={{ color: '#22C55E' }}>Geoscience,</span>
-              <br />
-              <span style={{ color: '#60a5fa' }}>Formation Evaluation,</span>
-              <br />
+              <span style={{color:'#22C55E'}}>Geoscience,</span>
+              <br/>
+              <span style={{color:'#60a5fa'}}>Formation Evaluation,</span>
+              <br/>
               Drilling &amp;{' '}
-              <span style={{ color: '#F97316' }}>Upstream</span>
-              <br />
+              <span style={{color:'#F97316'}}>Upstream</span>
+              <br/>
               <span className="text-white">Professionals</span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Sub */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.33 }}
+              initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{duration:0.5,delay:0.3}}
               className="text-base leading-relaxed mb-8 max-w-md"
-              style={{ color: 'rgba(255,255,255,0.62)' }}
-            >
+              style={{color:'rgba(255,255,255,0.6)'}}>
               A regional platform advancing technical excellence through knowledge sharing,
               professional development, collaboration, and innovation across the energy sector.
             </motion.p>
 
-            {/* CTA buttons */}
+            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.46 }}
-              className="flex flex-wrap gap-3 mb-8"
-            >
-              <Link href="/register" className="btn btn-primary btn-lg">
-                <Users size={16} /> Join GEOFERA <ArrowRight size={14} />
+              initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:0.45,delay:0.42}}
+              className="flex flex-wrap gap-3 mb-8">
+              <Link href="/register"
+                className="inline-flex items-center gap-2 font-bold text-white rounded-xl px-6 py-3.5 text-sm transition-all hover:opacity-90 hover:-translate-y-0.5 active:scale-95"
+                style={{background:'#F97316',boxShadow:'0 4px 20px rgba(249,115,22,0.4)'}}>
+                <Users size={15}/> Join GEOFERA <ArrowRight size={13}/>
               </Link>
-              <Link href="/training" className="btn btn-secondary btn-lg">
-                <BookOpen size={15} /> Explore Training
+              <Link href="/training"
+                className="inline-flex items-center gap-2 font-semibold rounded-xl px-6 py-3.5 text-sm transition-all hover:opacity-90 active:scale-95"
+                style={{background:'rgba(255,255,255,0.07)',color:'rgba(255,255,255,0.88)',border:'1px solid rgba(255,255,255,0.15)'}}>
+                <BookOpen size={14}/> Explore Training
               </Link>
-              <Link href="/events" className="btn btn-secondary btn-lg">
-                <Calendar size={15} /> Upcoming Events
+              <Link href="/events"
+                className="inline-flex items-center gap-2 font-semibold rounded-xl px-6 py-3.5 text-sm transition-all hover:opacity-90 active:scale-95"
+                style={{background:'rgba(255,255,255,0.07)',color:'rgba(255,255,255,0.88)',border:'1px solid rgba(255,255,255,0.15)'}}>
+                <Calendar size={14}/> Upcoming Events
               </Link>
             </motion.div>
 
-            {/* Social row */}
+            {/* Social */}
             <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.62 }}
-              className="flex items-center gap-2.5"
-            >
-              <span className="text-xs font-medium mr-1" style={{ color: 'rgba(255,255,255,0.35)' }}>
+              initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.58}}
+              className="flex items-center gap-2.5">
+              <span className="text-xs font-medium" style={{color:'rgba(255,255,255,0.32)'}}>
                 Follow us on
               </span>
-              {socials.map(({ Icon, href, label }) => (
+              {socials.map(({Icon,href,label})=>(
                 <a key={label} href={href} aria-label={label}
-                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                  style={{
-                    background: 'rgba(255,255,255,0.07)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: 'rgba(255,255,255,0.6)',
-                  }}
-                >
-                  <Icon size={14} />
+                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:border-[#F97316]"
+                  style={{background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.1)',color:'rgba(255,255,255,0.5)'}}>
+                  <Icon size={14}/>
                 </a>
               ))}
             </motion.div>
           </div>
 
-          {/* ── RIGHT: Technical visualization ── */}
+          {/* ── RIGHT: Visualization ── */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
+            initial={{opacity:0,x:28}} animate={{opacity:1,x:0}} transition={{duration:0.7,delay:0.22}}
             className="order-1 lg:order-2 relative"
             style={{
-              borderRadius: 20,
-              overflow: 'hidden',
-              boxShadow: '0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)',
-              height: 'clamp(340px,50vw,520px)',
-            }}
-          >
-            <HeroVisualization />
+              borderRadius:16,overflow:'hidden',
+              boxShadow:'0 24px 80px rgba(0,0,0,0.55),0 0 0 1px rgba(255,255,255,0.05)',
+              height:'clamp(280px,48vw,500px)',
+            }}>
+            <TechVisualization/>
           </motion.div>
-
         </div>
       </div>
 
-      {/* Bottom wave into white */}
+      {/* Wave to white */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 52" preserveAspectRatio="none" className="w-full" style={{ height: 52 }}>
-          <path d="M0,52 L0,28 Q360,4 720,28 Q1080,52 1440,28 L1440,52 Z" fill="#fff" />
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{width:'100%',height:48,display:'block'}}>
+          <path d="M0,48 L0,26 Q360,4 720,26 Q1080,48 1440,26 L1440,48Z" fill="#fff"/>
         </svg>
       </div>
     </section>

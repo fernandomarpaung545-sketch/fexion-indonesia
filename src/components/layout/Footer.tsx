@@ -35,7 +35,7 @@ const cols = [
 export function Footer() {
   return (
     <footer style={{ background: '#0A2342' }}>
-      <div className="container-geo py-14">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Brand col */}
