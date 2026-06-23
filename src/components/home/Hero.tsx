@@ -407,7 +407,7 @@ function DisciplineCards() {
 export function Hero() {
   return (
     <section style={{ position:'relative', background:'#d6eeff',
-      minHeight:760, paddingTop:64, overflow:'hidden' }}>
+      minHeight:760, paddingTop:72, overflow:'hidden' }}>
 
       {/* Geological background SVG */}
       <GeologicalBackground/>
@@ -415,7 +415,7 @@ export function Hero() {
       {/* Content layer */}
       <div style={{ position:'relative', zIndex:2,
         maxWidth:1440, margin:'0 auto', padding:'0 1.5rem',
-        minHeight:'calc(760px - 64px)', display:'flex', flexDirection:'column',
+        minHeight:'calc(760px - 72px)', display:'flex', flexDirection:'column',
         justifyContent:'space-between', paddingTop:'1.5rem', paddingBottom:'1rem' }}>
 
         {/* TOP ROW: left text + right discipline list */}

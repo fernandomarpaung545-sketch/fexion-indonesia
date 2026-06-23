@@ -37,7 +37,7 @@ export function Navbar() {
     <>
       <header style={{
         position:'fixed', top:0, left:0, right:0, zIndex:50,
-        height:64, background:'#fff',
+        height:72, background:'#fff',
         borderBottom:'1px solid #e5e7eb',
         boxShadow:'0 1px 6px rgba(0,0,0,0.06)',
       }}>
@@ -48,7 +48,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" style={{ display:'flex', alignItems:'center', textDecoration:'none', flexShrink:0 }}>
             <img src="/geofera-logo.png" alt="GEOFERA by OliNesia"
-              style={{ height:44, width:'auto', objectFit:'contain' }}/>
+              style={{ height:60, width:'auto', objectFit:'contain' }}/>
           </Link>
 
           {/* Desktop Nav */}
